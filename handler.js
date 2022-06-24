@@ -644,8 +644,8 @@ export async function participantsUpdate({ id, participants, action }) {
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝙂𝙧𝙪𝙥𝙤 𝙂𝙚𝙣𝙞𝙖𝙡 | 𝘾𝙤𝙤𝙡 𝙂𝙧𝙤𝙪𝙥 😼*') :
                             (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
                             let apii = await this.getFile(pp)
-                            this.sendHydrated(id, text, groupMetadata.subject, apii.data,                                                       'Hola', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
-                            [(action == 'add' ? '𝖀𝖓𝖔 𝖒𝖆́𝖘 𝖆𝖑 𝕲𝖆𝖓𝖆𝖉𝖔 🥳 | 𝙃𝙞!!' : 'Parte en tu viaje a la 🍆 | 𝘽𝙮𝙚'), '.s'],    
+                            this.sendHydrated(id, text, groupMetadata.subject, apii.data, 'Hola', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
+                            [(action == 'add' ? '𝖀𝖓𝖔 𝖒𝖆́𝖘 𝖆𝖑 𝕲𝖆𝖓𝖆𝖉𝖔 🥳 | 𝙃𝙞!!' : 'Quiero que sepas, que pase lo que pase, NO TE EXTRAÑEROMOS ADIOS 𝔻ℝ𝔸𝕄𝔸𝕋𝕀ℂ𝕆 | 𝘽𝙮𝙚'), '.s'],    
                             ['💖 𝙄𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪 | 𝙂𝙤 𝙈𝙚𝙣𝙪', '/menu']
                             ], '', { mentions: [user]})
                            }
