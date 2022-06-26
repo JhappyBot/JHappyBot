@@ -6,12 +6,12 @@ if (!db.data.chats[m.chat].audios && m.isGroup) throw 0
 global.db.data.users[m.sender].money += 100 
 global.db.data.users[m.sender].exp += 100
   
-let vn = './media/Nico Nico.mp3'
+let vn = './media/Adios.mp3'
 conn.sendFile(m.chat, vn, 'Nico Nico.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true 
 })
 }
-handler.customPrefix = /Nico Nico/i  
+handler.customPrefix = /Adios 𝔻ℝ𝔸𝕄𝔸𝕋𝕀ℂ𝕆/i  
 handler.command = new RegExp
 export default handler
