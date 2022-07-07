@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /Adios 𝔻ℝ𝔸𝕄𝔸𝕋𝕀ℂ𝕆/i  
+handler.customPrefix = /Adios/i  
 handler.command = new RegExp
 export default handler
