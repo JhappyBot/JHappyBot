@@ -1,3 +1,4 @@
+
 import util from 'util'
 import path from 'path'
 
@@ -12,6 +13,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /sapo|miron|👀|/i
+handler.customPrefix = /sapo|miron|👀/i 
 handler.command = new RegExp
 export default handler
