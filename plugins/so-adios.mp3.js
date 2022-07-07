@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /Adios/i  
+handler.customPrefix = /Adios|bye|chao/i  
 handler.command = new RegExp
 export default handler
