@@ -27,9 +27,9 @@
     },
     "license": "MIT",
     "dependencies": {
-        "@adiwajshing/baileys": "^4.2.0",
+        "@adiwajshing/baileys": "^4.1.0",
         "@bochilteam/scraper": "^2.0.0",
-        "awesome-phonenumber": "^3.2.0",
+        "awesome-phonenumber": "^2.68.0",
         "axios": "^0.27.2",
         "cfonts": "^3.1.1",
         "chalk": "^5.0.1",
