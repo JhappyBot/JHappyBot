@@ -21,10 +21,10 @@ say('Gata\nBot\nMD', {
   align: 'center',
   gradient: ['red', 'magenta']
 })
-say(`Por Gata Dios`, {
+say(`CHUPALO`, {
   font: 'console',
   align: 'center',
-  gradient: ['red', 'magenta']
+  gradient: ['blue', 'magenta']
 })
 
 var isRunning = false
