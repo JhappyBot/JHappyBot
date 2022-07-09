@@ -613,6 +613,12 @@ export async function handler(chatUpdate) {
         }
         if (opts['autoread'])
             await this.chatRead(m.chat, m.isGroup ? m.sender : undefined, m.id || m.key.id).catch(() => { })
+        if (!m.fromMem && m.text.match(/(Gata|Gata-bot|botcito|Gatabot)/gi)) {
+        let emot = pickRandom(["🎃", "❤", "😘", "😍", "💕", "😎", "🙌", "⭐", "👻", "🔥"])
+        this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
+        function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
+    }
+    
     }
 }
 
