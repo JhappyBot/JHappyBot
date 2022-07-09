@@ -14,16 +14,16 @@
         "cli": "node . --optimize_for_size --max_old_space_size=460 index.js",
         "db": "node . --autocleartmp --db 'mongodb+srv://BrunoSobrino:Akhmad6825@cluster0.mflne.mongodb.net/TheMystic-Bot?retryWrites=true&w=majority'"
     },
-    "homepage": "https://github.com/BotSatMagic",
+    "homepage": "https://github.com/GataNina-Li",
     "author": {
-        "name": "BotSatMagic"
+        "name": "GataNina-Li"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/BotSatMagic/Gatabotmd.git"
+        "url": "git+https://github.com/GataNina-Li/GataBot-MD.git"
     },
     "bugs": {
-        "url": "https://github.com/BotSatMagic/Gatabotmd/issues"
+        "url": "https://github.com/GataNina-Li/GataBot-MD/issues"
     },
     "license": "MIT",
     "dependencies": {
