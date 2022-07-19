@@ -12,6 +12,6 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /Mentiroso|mentira|mentirosa|mentiroso/
+handler.customPrefix = /Mentiroso|mentira|mentirosa|mentiroso|Mentira/
 handler.command = new RegExp
 export default handler
