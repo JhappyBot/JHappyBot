@@ -6,12 +6,12 @@ if (!db.data.chats[m.chat].audios && m.isGroup) throw 0
 global.db.data.users[m.sender].money += 100 
 global.db.data.users[m.sender].exp += 100
   
-let vn = './media/el pepe.mp3'
-conn.sendFile(m.chat, vn, 'el pepe.mp3', null, m, true, {
+let vn = './media/policia.mp3'
+conn.sendFile(m.chat, vn, 'policia.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true 
 })
 }
-handler.customPrefix = /El pepe|el pepe|El Pepe|el Pepe/ 
+handler.customPrefix = /Parchis rata|parchis rata|Parchis es rata|parchis es rata/ 
 handler.command = new RegExp
 export default handler
