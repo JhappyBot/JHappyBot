@@ -12,7 +12,7 @@ type: 'audioMessage',
 ptt: true 
 })
 }
-handler.customPrefix = /Parchis rata|parchis es rata|parchis rata|rata parchis/i 
+handler.customPrefix = /Parchis rata|parchís rata|Parchís es rata|parchís es rata|parchis es rata|parchis rata|rata parchis/
 handler.command = new RegExp
 export default handler
 
