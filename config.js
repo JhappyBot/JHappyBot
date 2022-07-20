@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url'
 
 //⊱ ━━━━━.⋅ Añada los numeros a ser Propietario/a | Add the numbers to be Owner ⋅.━━━━ ⊰
 global.owner = [
-  ['573005929265', 'GataBot-MD 💖🐈', true],
+  ['573005929265', '🅙🅗🅐🅟🅟🅨-🅑🅞🅣 💖🐈', true],
   ['573212820425'],
   ['593987101976'],
   ['393924171285'],
@@ -72,8 +72,8 @@ global.APIKeys = { // APIKey Here
 
 //⊱ ━━━━━.⋅ Sticker WM ⋅.━━━━ ⊰
 
-global.packname = '🐈 𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿'
-global.author = 'MIAU'
+global.packname = '🙃 🅙🅗🅐🅟🅟🅨-🅑🅞🅣'
+global.author = '🙃'
 
 //━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
@@ -83,25 +83,25 @@ global.author = 'MIAU'
 global.vs = '1.1.1'
 global.version = vs
 
-global.gt = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿'
+global.gt = '🅙🅗🅐🅟🅟🅨-🅑🅞🅣'
 global.gatabot = gt
 
-global.yt = 'sapo'
+global.yt = '🙃'
 global.youtube = yt
 
-global.ig = 'MIAU'
+global.ig = '🙃'
 global.gatadiosig = ig
 
-global.md = 'MIAU'
+global.md = '🙃'
 global.gatabot = md
 
-global.nn = 'MIAU'
+global.nn = '🙃'
 global.nngrupo = nn
 
-global.nnn = 'Miau'
+global.nnn = '🙃'
 global.nnngrupo = nnn
 
-global.paypal = 'Miau'
+global.paypal = '🙃'
 global.donar = paypal
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
@@ -135,8 +135,8 @@ global.exito = eg
 
 //⊱ ━━━━━.⋅ Información | Information ⋅.━━━━ ⊰
 
-global.wm = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | MIAU'
-global.igfg = '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿'
+global.wm = '🅙🅗🅐🅟🅟🅨-🅑🅞🅣 | 🙃'
+global.igfg = '🅙🅗🅐🅟🅟🅨-🅑🅞🅣'
 global.wait = '*⌛ _Cargando..._ ▬▬▬▭*'
 
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
