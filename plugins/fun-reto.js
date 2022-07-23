@@ -19,6 +19,7 @@ function pickRandom(list) {
 // https://jalantikus.com/tips/kata-kata-bucin/
 global.bucin = [
 "Pasa el pack de una hormiga",
+"Regala 5millones de oro de parchis al primero que diga yo",
 "Dile a tus amigos que te vas a vivir a EU y mándame una captura de lo que te haya dicho",
 "Grita desde la ventana que quieres mamar y mándame el vídeo",
 "Escribe el nombre de tu crush",
