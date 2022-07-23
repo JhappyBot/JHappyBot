@@ -23,10 +23,7 @@ let info = `
 ╭━━━━[ ${gt} ]━━━━━⬣
 ┃
 ┃➥ *CREADORA | CREATOR*
-┃ღ *MIAU*
-┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃➥ *CONTACTO | CONTACT* 
-┃ღ *${ig}*
+┃ღ *🤡*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃𓃠 *VERSIÓN ACTUAL | VERSION*
 ┃ღ ${vs}
@@ -60,7 +57,7 @@ let info = `
 ┃
 ╰━━━[ 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣 ]━━⬣`.trim()
 
-conn.sendHydrated(m.chat, info, wm, pp, '🤡 𝙃𝙊𝙇𝘼 Michu michu 🤡', '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿', null, null, [
+conn.sendHydrated(m.chat, info, wm, pp, '🤡 𝙃𝙊𝙇𝘼  🤡', '🅙🅗🅐🅟🅟🅨-🅑🅞🅣', null, null, [
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', '.menu']
 ], m,)
 //conn.reply(m.chat, info, m)
