@@ -20,7 +20,7 @@ case 'video': return `
     }
   }).filter(v => v).join('\n====================================\n')
  await m.reply(teks)
- let info = `💖 *Infórmate sobre las Novedades y recuerda tener la última versión.*\n\n💝 *Find out about what's new and remember to have the latest version.*
+ let info = `💖 *🅙🅗🅐🅟🅟🅨-🅑🅞🅣.*\n\n💝 *Hello.*
   `.trim()
 await conn.sendHydrated(m.chat, info, wm, null, ig, '🙃', null, null, [
 ['𝙈𝙚𝙣𝙪 𝘽𝙪𝙨𝙦𝙪𝙚𝙙𝙖𝙨 | 𝙎𝙚𝙖𝙧𝙘𝙝𝙚𝙨 🔎', '#buscarmenu'],
