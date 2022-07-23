@@ -61,10 +61,10 @@ text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length
  let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
-let pp = './media/menus/Menuvid3.mp4'
+let pp = './media/menus/jmenub2.jpg'
   
  let str = `
-╭━━〔 🐈⚡️🐈⚡️🐈⚡️🐈 〙━━⬣   
+╭━━〔 🤡⚡️🤡⚡️🤡⚡️🤡 〙━━⬣   
 ┃ 💖 ¡Hola! ${username} 💖
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ *𝙈𝙀𝙉𝙐 𝘿𝙀 𝘼𝙐𝘿𝙄𝙊𝙎*
