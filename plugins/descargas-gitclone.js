@@ -9,7 +9,7 @@ let url = `https://api.github.com/repos/${user}/${repo}/zipball`
 let filename = (await fetch(url, { method: 'HEAD' })).headers.get('content-disposition').match(/attachment; filename=(.*)/)[1]
 m.reply(`${eg}𝙀𝙉𝙑𝙄𝘼𝙉𝘿𝙊 𝘼𝙍𝘾𝙃𝙄𝙑𝙊, 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊 🚀\n𝙎𝙄 𝙉𝙊 𝙇𝙀 𝙇𝙇𝙀𝙂𝘼 𝙀𝙇 𝘼𝙍𝘾𝙃𝙄𝙑𝙊 𝙀𝙎 𝘿𝙀𝘽𝙄𝘿𝙊 𝘼 𝙌𝙐𝙀 𝙀𝙇 𝙍𝙀𝙋𝙊𝙎𝙄𝙏𝙊𝙍𝙄𝙊 𝙀𝙎 𝙋𝙀𝙎𝘼𝘿𝙊.\n\n𝙎𝙀𝙉𝘿𝙄𝙉𝙂 𝙁𝙄𝙇𝙀, 𝙅𝙐𝙎𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏 🚀\n𝙄𝙁 𝙏𝙃𝙀 𝙁𝙄𝙇𝙀 𝘿𝙊𝙀𝙎 𝙉𝙊𝙏 𝘼𝙍𝙍𝙄𝙑𝙀, 𝙄𝙏 𝙄𝙎 𝘽𝙀𝘾𝘼𝙐𝙎𝙀 𝙏𝙃𝙀 𝙍𝙀𝙋𝙊𝙎𝙄𝙏𝙊𝙍𝙔 𝙄𝙎 𝙃𝙀𝘼𝙑𝙔.`)
 conn.sendFile(m.chat, url, filename, null, m)
-let info = `💖 *Infórmate sobre las Novedades y recuerda tener la última versión.*\n\n💝 *Find out about what's new and remember to have the latest version.*
+let info = `💖 *🅙🅗🅐🅟🅟🅨-🅑🅞🅣.*\n\n💝 *Hello.*
   `.trim()
   
 await conn.sendHydrated(m.chat, info, wm, null, ig, '🙃', null, null, [
