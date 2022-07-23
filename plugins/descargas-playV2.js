@@ -8,8 +8,8 @@ conn.reply(m.chat, `${eg}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉�
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
 title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | MIAU',
 body: 'Super Bot WhatsApp',         
-previewType: 0, thumbnail: fs.readFileSync("./media/menus/Menu3.jpg"),
-sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}}) 
+previewType: 0, thumbnail: fs.readFileSync("./media/menus/jmenub2.jpeg"),
+sourceUrl: `hOLA`}}}) 
   
 let res = await fetch("https://api.dhamzxploit.my.id/api/ytplaymp3?text="+text)
 //https://leyscoders-api.herokuapp.com/api/playmp3?q=lebih%20baik%20darinya&apikey=Your_Key
@@ -21,8 +21,8 @@ conn.reply(m.chat, `${eg}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉�
 contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: null, 
 title: '𝙂𝙖𝙩𝙖𝘽𝙤𝙩-𝙈𝘿 | MIAU',
 body: 'Super Bot WhatsApp',         
-previewType: 0, thumbnail: fs.readFileSync("./media/menus/Menu3.jpg"),
-sourceUrl: `https://github.com/GataNina-Li/GataBot-MD`}}})
+previewType: 0, thumbnail: fs.readFileSync("./media/menus/jmenub2.jpeg"),
+sourceUrl: `hOLA`}}})
   
 let res = await fetch("https://api.dhamzxploit.my.id/api/ytplaymp4?text="+text) 
 let json = await res.json()
