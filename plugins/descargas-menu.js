@@ -84,7 +84,7 @@ rows: [
 {title: "🚀 𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙧 𝙍𝙚𝙥𝙤𝙨𝙞𝙩𝙤𝙧𝙞𝙤 | 𝘿𝙤𝙬𝙣𝙡𝙤𝙖𝙙 𝙍𝙚𝙥𝙤𝙨𝙞𝙩𝙤𝙧𝙮 🚀", description: "𝙐𝙎𝘼 𝙐𝙉 𝙀𝙉𝙇𝘼𝘾𝙀 𝘿𝙀 𝙍𝙀𝙋𝙊𝙎𝙄𝙏𝙊𝙍𝙄𝙊 𝘿𝙀 𝙂𝙄𝙏𝙃𝙐𝘽\n𝙐𝙎𝙀 𝘼 𝙂𝙄𝙏𝙃𝙐𝘽 𝙍𝙀𝙋𝙊𝙎𝙄𝙏𝙊𝙍𝙔 𝙇𝙄𝙉𝙆", rowId: `${usedPrefix}gitclone`},
 ]}, ] */
 //let name = await conn.getName(m.sender)
-let pp = './media/menus/menucat22.jpg'  
+let pp = './media/menus/jmenub2.jpg'  
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -97,7 +97,7 @@ let menu = `
 ┃✪ *EXPERIENCIA | EXP ➺ ${exp}*
 ┃✪ *NIVEL | LEVEL ➺ ${level}*
 ┃✪ *ROL ➺ ${role}*
-┃✪ *GATACOINS ➺ $ ${money}*
+┃✪ *COINS ➺ $ ${money}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✪ *FECHA ➺ ${week}, ${date}*
 ┃✪ *USUARIOS | USERS ➺ ${Object.keys(global.db.data.users).length}* 
