@@ -5,7 +5,8 @@ let handler = async (m, { conn }) => {
     if (!db.data.chats[m.chat].audios && m.isGroup) throw 0
     global.db.data.users[m.sender].money += 50 
     global.db.data.users[m.sender].exp += 50
- */
+ 
+ */ 
 
 let handler = m => m
 handler.all = async function (m) {
