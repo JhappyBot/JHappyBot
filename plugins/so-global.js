@@ -1,14 +1,16 @@
-import util from 'util'
+/*import util from 'util'
 import path from 'path'
 
 let handler = async (m, { conn }) => {
     if (!db.data.chats[m.chat].audios && m.isGroup) throw 0
     global.db.data.users[m.sender].money += 50 
     global.db.data.users[m.sender].exp += 50
-/*let handler = m => m
+ */
+
+let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
-*/
+
 if (/A Bueno master|Bueno master|Bueno Máster|🫂/i.test(m.text) && chat.audios) {
 let vn = './media/A bueno adios master.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
