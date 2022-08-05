@@ -12,7 +12,7 @@ let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
 
-if (/A Bueno master|Bueno master|Bueno Máster|🫂/i.test(m.text) && chat.audios) {
+if (/(A Bueno master|Bueno master|Bueno Máster|)/gi.test(m.text) && chat.audios) {
 let vn = './media/A bueno adios master.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}   
