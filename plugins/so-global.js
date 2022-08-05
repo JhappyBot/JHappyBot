@@ -7,7 +7,6 @@ let handler = async (m, { conn }) => {
     global.db.data.users[m.sender].exp += 50
  
 
-
 let handler = m => m
 handler.all = async function (m) {
 let chat = global.db.data.chats[m.chat]
