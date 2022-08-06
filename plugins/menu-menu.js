@@ -5,7 +5,7 @@ import { promises } from 'fs'
 import { join } from 'path'
 let handler = async (m, { conn, usedPrefix, usedPrefix: _p, __dirname, text }) => {
 try {
-let vn = './media/usame_ex.mp3'
+let vn = './media/soybot.mp3'
 let pp = './media/menus/jmenub2.jpg'
 let _package = JSON.parse(await promises.readFile(join(__dirname, '../package.json')).catch(_ => ({}))) || {}
 let { exp, limit, level, role } = global.db.data.users[m.sender]
@@ -384,7 +384,7 @@ conn.sendHydrated(m.chat, str, wm, pp, '🤡 𝙃𝙊𝙇𝘼 🤡', `Hola`, nul
 ['💝 𝙈𝙚𝙣𝙪 𝘼𝙪𝙙𝙞𝙤𝙨 💝', '.audios']
 
 ], m,)
-await conn.sendFile(m.chat, vn, 'usame_ex.mp3', null, m, true, {
+await conn.sendFile(m.chat, vn, 'soybot.mp3', null, m, true, {
 type: 'audioMessage', 
 ptt: true})
 } catch (e) {
