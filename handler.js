@@ -612,8 +612,9 @@ export async function handler(chatUpdate) {
             console.log(m, m.quoted, e)
         }
         if (opts['autoread'])
-            await this.chatRead(m.chat, m.isGroup ? m.sender : undefined, m.id || m.key.id).catch(() => { })
+            //await this.chatRead(m.chat, m.isGroup ? m.sender : undefined, m.id || m.key.id).catch(() => { })
        
+            await this.readMessages([m.key])    
         if (!m.fromMem && m.text.match(/(JHAPPYBOT|Happy Bot|botcito|Happybot)/gi)) {
         let emot = pickRandom(["🎃", "❤", "😘", "😍", "💕", "😎", "🙌", "⭐", "👻", "🔥"])
         this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
@@ -646,13 +647,19 @@ export async function participantsUpdate({ id, participants, action }) {
                         pp = await this.profilePictureUrl(user, 'image')
                     } catch (e) {
                     } finally {
+                        let apii = await this.getFile(pp)
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝙂𝙧𝙪𝙥𝙤 𝙂𝙚𝙣𝙞𝙖𝙡 | 𝘾𝙤𝙤𝙡 𝙂𝙧𝙤𝙪𝙥 😼*') :
                             (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
-                            let apii = await this.getFile(pp)
-                            this.sendHydrated(id, text, groupMetadata.subject, apii.data, 'Hola', '🅙🅗🅐🅟🅟🅨-🅑🅞🅣', null, null, [
-                            [(action == 'add' ? 'ᗷIEᑎᐯEᑎIᗪO/ᗩ 🥳 | 𝙃𝙞!!' : 'Bye | Adios 𝔻ℝ𝔸𝕄𝔸𝕋𝕀ℂ𝕆 '), '.s'],    
-                            ['💖 𝙄𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪 | 𝙂𝙤 𝙈𝙚𝙣𝙪', '/menu']
-                            ], '', { mentions: [user]})
+                            let ftroli = { key: { fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "0-0@g.us" }, "message": { orderMessage: { itemCount: 6546464643, status: 200, thumbnail: imagen1, surface: 200, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' }}, contextInfo: { "forwardingScore": 999, "isForwarded": true}, sendEphemeral: true}
+                            this.sendButton(id, text, groupMetadata.subject, apii.data, apii.data, [[(action == 'add' ? '💫 𝖀𝖓𝖔 𝖒𝖆́𝖘 𝖆𝖑 𝕲𝖆𝖓𝖆𝖉𝖔 🥳 💫' : '☠ Adios 𝔻ℝ𝔸𝕄𝔸𝕋𝕀ℂ𝕆 ☠'), (action == 'add' ? '#welcomegc' : '#byegc')], ['♦ 𝙼𝙴𝙽𝚄 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 ♦', `#menu`]], ftroli, {mentions: this.parseMention(text)})
+                                           
+                        //text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝙂𝙧𝙪𝙥𝙤 𝙂𝙚𝙣𝙞𝙖𝙡 | 𝘾𝙤𝙤𝙡 𝙂𝙧𝙤𝙪𝙥 😼*') :
+                        //    (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', '@' + user.split('@')[0])
+                        //    let apii = await this.getFile(pp)
+                        //    this.sendHydrated(id, text, groupMetadata.subject, apii.data, 'Hola', '🅙🅗🅐🅟🅟🅨-🅑🅞🅣', null, null, [
+                        //    [(action == 'add' ? 'ᗷIEᑎᐯEᑎIᗪO/ᗩ 🥳 | 𝙃𝙞!!' : 'Bye | Adios 𝔻ℝ𝔸𝕄𝔸𝕋𝕀ℂ𝕆 '), '.s'],    
+                        //    ['💖 𝙄𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪 | 𝙂𝙤 𝙈𝙚𝙣𝙪', '/menu']
+                        //    ], '', { mentions: [user]})
                            }
                 }
             }
