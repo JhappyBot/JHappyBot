@@ -79,7 +79,7 @@ const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
   //logger: pino({ level: 'trace' }), //import P from 'pino';
-  browser: ['GataBotmd','Edge','1.0.0'] //Nombre de la sesión 
+  browser: ['JHappyBot','Edge','1.0.0'] //Nombre de la sesión 
 }
 
 global.conn = makeWASocket(connectionOptions)
