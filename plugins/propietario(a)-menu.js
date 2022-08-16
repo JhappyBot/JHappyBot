@@ -77,18 +77,19 @@ rows: [
 {title: "💎 𝘾𝙤𝙢𝙪𝙣𝙞𝙘𝙖𝙙𝙤 𝙖 𝙂𝙧𝙪𝙥𝙤𝙨 | 𝘽𝙧𝙤𝙖𝙙𝙘𝙖𝙨𝙩 𝙂𝙧𝙤𝙪𝙥𝙨 💎", description: "𝙀𝙉𝙑𝙄𝘼𝙍 𝙐𝙉 𝘼𝙉𝙐𝙉𝘾𝙄𝙊 𝘼 𝙂𝙍𝙐𝙋𝙊𝙎\n𝙎𝙀𝙉𝘿 𝘼𝙉 𝘼𝘿 𝙏𝙊 𝙂𝙍𝙊𝙐𝙋𝙎", rowId: `${usedPrefix}bcgc`},  
 ]}, ] */
 //let name = await conn.getName(m.sender)
-let pp = './media/menus/jmenub2.jpg'  
+let pp = './media/menus/Menu1.jpg'  
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
-
+//let user = global.db.data.users[m.sender]
+//user.registered = false
 
 let menu = `
 💗 *¡HOLA | HI!* ${username}
 ╭━━〔 *${wm}* 〕━━⬣
 ┃⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️
 ┃✪ *EXPERIENCIA | EXP ➺ ${exp}*
-┃✪ *NIVEL | LEVEL ➺ ${level}*
+┃✪ *NIVEL | LEVEL ➺* ${level}
 ┃✪ *ROL ➺ ${role}*
 ┃✪ *COINS ➺ $ ${money}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
@@ -97,19 +98,31 @@ let menu = `
 ┃⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️⚙️
 ╰━━━━━━〔 𓃠 *${vs}* 〕━━━━━━⬣
 
-╭━〔 𝙄𝙉𝙁𝙊𝙍𝙈𝘼𝘾𝙄Ó𝙉 | 𝙄𝙉𝙁𝙊 𝙈𝙀𝙉𝙐 〕━⬣
+╭━〔 𝙈𝙀𝙉𝙐 𝙋𝘼𝙍𝘼 𝙋𝙍𝙊𝙋𝙄𝙀𝙏𝘼𝙍𝙄𝙊/𝘼 〕━⬣
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
-┃💎➺ _${usedPrefix}actualizar | update_
-┃💎➺ _${usedPrefix}reiniciar | restart_
+┃💎➺ _${usedPrefix}dardiamantes *cantidad*_
+┃💎➺ _${usedPrefix}darxp *cantidad*_
+┃💎➺ _${usedPrefix}darcoins *cantidad*_
+┃💎➺ _${usedPrefix}cajafuerte_
+┃💎➺ _${usedPrefix}comunicar | broadcastall | bc *texto*_
+┃💎➺ _${usedPrefix}broadcastchats | bcc *texto*_
+┃💎➺ _${usedPrefix}comunicarpv *texto*_
+┃💎➺ _${usedPrefix}broadcastgc *texto*_
+┃💎➺ _${usedPrefix}comunicargrupos *texto*_
 ┃💎➺ _${usedPrefix}borrartmp | cleartmp_
-┃💎➺ _${usedPrefix}ban1 | banchat1_
-┃💎➺ _${usedPrefix}desban1 | unbanchat1_
-┃💎➺ _${usedPrefix}comunicar | broadcastall | bc_
-┃💎➺ _${usedPrefix}comunicarpv | broadcastchats | bcc_
-┃💎➺ _${usedPrefix}comunicargrupos | broadcastgc_
-┃💎➺ _${usedPrefix}bcgc_
+┃💎➺ _${usedPrefix}delexp *@tag*_
+┃💎➺ _${usedPrefix}delcoins *@tag*_
+┃💎➺ _${usedPrefix}deldiamantes *@tag*_
+┃💎➺ _${usedPrefix}reiniciar | restart_
+┃💎➺ _${usedPrefix}ctualizar | update_
+┃💎➺ _${usedPrefix}addprem | +prem *@tag*_
+┃💎➺ _${usedPrefix}delprem | -prem *@tag*_
+┃💎➺ _${usedPrefix}listapremium | listprem_
+┃💎➺ _${usedPrefix}añadirdiamantes *@tag cantidad*_
+┃💎➺ _${usedPrefix}añadirxp *@tag cantidad*_
+┃💎➺ _${usedPrefix}añadircoins *@tag cantidad*_
 ╰━━━━━━━━━━━━━━━━━━━⬣`.trim()
-conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', '🅙🅗🅐🅟🅟🅨-🅑🅞🅣', null, null, [
+conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', `${wm}`, null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu'],
 ['𝙈𝙚𝙣𝙪 𝙙𝙚𝙨𝙥𝙡𝙚𝙜𝙖𝙗𝙡𝙚 | 𝙈𝙚𝙣𝙪 𝙇𝙞𝙨𝙩 🌟', '/menulista'],
 ['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu']
@@ -119,6 +132,7 @@ conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', '🅙🅗🅐🅟🅟🅨-🅑�
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
 handler.command = /^(ownermenu)$/i
+//handler.register = true
 export default handler
 
 const more = String.fromCharCode(8206)

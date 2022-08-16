@@ -14,8 +14,8 @@ let veloz =
 `🚄 *VELOCIDAD:*\n *${speed}* *Milisegundos*\n\n🚄 *SPEED:*\n *${speed}* *Milliseconds*`
 
  const templateButtonsReplyMessage = [
-{index: 1, urlButton: {displayText: '🅙🅗🅐🅟🅟🅨-🅑🅞🅣', url: 'HOLA'}},
-{index: 2, urlButton: {displayText: 'HOLA', url: 'Chao'}},
+{index: 1, urlButton: {displayText: `${wm}`, url: 'Hola'}},
+{index: 2, urlButton: {displayText: ':P', url: 'Chau'}},
 {index: 3, quickReplyButton: {displayText: '𝙊𝙩𝙧𝙖 𝙫𝙚𝙯 | 𝘼𝙜𝙖𝙞𝙣', id: '#ping'}},
 {index: 4, quickReplyButton: {displayText: '𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙘𝙞ó𝙣 | 𝙄𝙣𝙛𝙤𝙧𝙢𝙖𝙩𝙞𝙤𝙣', id: '#infobot'}},
 {index: 5, quickReplyButton: {displayText: '𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪', id: '#menu'}},

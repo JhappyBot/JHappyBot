@@ -61,11 +61,12 @@ text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length
   
   
 //let name = await conn.getName(m.sender)
-let pp = './media/menus/jmenub2.jpg'
+let pp = './media/menus/Menu1.jpg'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
-
+//let user = global.db.data.users[m.sender]
+//user.registered = false
 
 let menu = `
 💗 *¡HOLA | HI!* ${username}
@@ -73,7 +74,7 @@ let menu = `
 ┃🎠🎠🎠🎠🎠🎠🎠🎠🎠
 ┃✪ *EXPERIENCIA | EXP ➺ ${exp}*
 ┃✪ *NIVEL | LEVEL ➺ ${level}*
-┃✪ *ROL ➺ ${role}*
+┃✪ *ROL ➺* ${role}
 ┃✪ *COINS ➺ $ ${money}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃✪ *FECHA ➺ ${week}, ${date}*
@@ -83,10 +84,24 @@ let menu = `
 
 ╭━〔 𝙅𝙐𝙀𝙂𝙊𝙎 𝘿𝙄𝙉𝘼𝙈𝙄𝘾𝙊𝙎 | 𝙂𝘼𝙈𝙀𝙎 〕⬣
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃🎡➺ _${usedPrefix}start_
+┃🎡➺ _${usedPrefix}next_
+┃🎡➺ _${usedPrefix}leave_
 ┃🎡➺ _${usedPrefix}mates | matemáticas | math_
 ┃🎡➺ _${usedPrefix}ppt *piedra : papel : tijera*_
+┃🎡➺ _${usedPrefix}tictactoe | ttt *sala*_
+┃🎡➺ _${usedPrefix}deltictactoe | delttt_
 ┃🎡➺ _${usedPrefix}topgays_
 ┃🎡➺ _${usedPrefix}topotakus_
+┃🎡➺ _${usedPrefix}topintegrantes | topintegrante_
+┃🎡➺ _${usedPrefix}toplagrasa | topgrasa_
+┃🎡➺ _${usedPrefix}toppanafrescos | toppanafresco_
+┃🎡➺ _${usedPrefix}topshiposters | topshipost_
+┃🎡➺ _${usedPrefix}toppajeros | toppajer@s_
+┃🎡➺ _${usedPrefix}toplindos | toplind@s_
+┃🎡➺ _${usedPrefix}topputos | topput@s_
+┃🎡➺ _${usedPrefix}topfamosos | topfamos@s_
+┃🎡➺ _${usedPrefix}topparejas | top5parejas_
 ┃🎡➺ _${usedPrefix}gay | gay *@tag*_
 ┃🎡➺ _${usedPrefix}gay2 *nombre : @tag*_
 ┃🎡➺ _${usedPrefix}lesbiana *nombre : @tag*_
@@ -101,7 +116,7 @@ let menu = `
 ┃🎡➺ _${usedPrefix}doxear *nombre : @tag*_
 ┃🎡➺ _${usedPrefix}doxxeame_
 ┃🎡➺ _${usedPrefix}pregunta *texto*_
-┃🎡➺ _${usedPrefix}slot *apuesta*_
+┃🎡➺ _${usedPrefix}apostar | slot *cantidad*_
 ┃🎡➺ _${usedPrefix}formarpareja_
 ┃🎡➺ _${usedPrefix}dado_
 ┃🎡➺ _${usedPrefix}verdad_
@@ -112,7 +127,7 @@ let menu = `
 ┃🎡➺ _${usedPrefix}multijuegos_
 ┃🎡➺ _${usedPrefix}juegos_
 ╰━━━━━━━━━━━━━━━━━━━⬣`.trim()
-conn.sendHydrated(m.chat, menu, wm, pp, '🙃', '🅙🅗🅐🅟🅟🅨-🅑🅞🅣', null, null, [
+conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', `${wm}`, null, null, [
 ['𝙈𝙚𝙣𝙪́ 𝙘𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 💫', '.allmenu'],
 ['𝙈𝙚𝙣𝙪 𝙙𝙚𝙨𝙥𝙡𝙚𝙜𝙖𝙗𝙡𝙚 | 𝙈𝙚𝙣𝙪 𝙇𝙞𝙨𝙩 🌟', '/menulista'],
 ['𝙈𝙚𝙣𝙪 𝙋𝙧𝙞𝙣𝙘𝙞𝙥𝙖𝙡 | 𝙈𝙖𝙞𝙣 𝙢𝙚𝙣𝙪 ⚡', '#menu']
@@ -123,6 +138,7 @@ conn.sendHydrated(m.chat, menu, wm, pp, '🙃', '🅙🅗🅐🅟🅟🅨-🅑�
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
 handler.command = /^(juegosmenu)$/i
+//handler.register = true
 handler.exp = 50
 export default handler
 

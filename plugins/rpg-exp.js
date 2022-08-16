@@ -39,7 +39,7 @@ process.once('message', resolve)
 setTimeout(resolve, 1000)
 }) * 1000
 }
-let { money } = global.db.data.users[m.sender]
+let { money, joincount } = global.db.data.users[m.sender]
 //let { limit } = global.db.data.users[m.sender]
 let muptime = clockString(_muptime)
 let uptime = clockString(_uptime)
@@ -62,7 +62,7 @@ text = text.replace(new RegExp(`%(${Object.keys(replace).sort((a, b) => b.length
   
 //let name = await conn.getName(m.sender)
 let user = global.db.data.users[m.sender]
-let pp = './media/menus/jmenub2.jpg'
+let pp = './media/menus/Menu1.jpg'
 let who = m.mentionedJid && m.mentionedJid[0] ? m.mentionedJid[0] : m.fromMe ? conn.user.jid : m.sender
 let mentionedJid = [who]
 let username = conn.getName(who)
@@ -79,13 +79,16 @@ let menu = `╭━━〔 *${wm}* 〕━━⬣
 ┃ ➥ *${level}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ ✪ *ROL*
-┃ ➥ *${role}*
+┃ ➥ ${role}
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ ✪ *COINS*
-┃ ➥ *$${money}*
+┃ ➥ *${money}*
+┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
+┃ ✪ *TOKENS*
+┃ ➥ *${joincount}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ ✪ *DIAMANTES* 
-┃ ➥ *$${limit}*
+┃ ➥ *${limit}*
 ┃┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈
 ┃ ✪ *FECHA*
 ┃ ➥ *${week}, ${date}*
@@ -93,7 +96,7 @@ let menu = `╭━━〔 *${wm}* 〕━━⬣
 ┃ ✪ *USUARIOS | USERS*
 ┃ ➥ *${Object.keys(global.db.data.users).length}* 
 ╰━━━━━━〔 *𓃠 ${vs}* 〕━━━━━━⬣`.trim()
-conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', '🅙🅗🅐🅟🅟🅨-🅑🅞🅣', null, null, [
+conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', `${wm}`, null, null, [
 ['𝙀𝙭𝙥𝙚𝙧𝙞𝙚𝙣𝙘𝙞𝙖 𝙥𝙤𝙧 𝘿𝙞𝙖𝙢𝙖𝙣𝙩𝙚 ⚡', '.buy'],
 ['𝘾𝙤𝙞𝙣𝙨 𝙥𝙤𝙧 𝘿𝙞𝙖𝙢𝙖𝙣𝙩𝙚 🐈', '/buy2'],
 ['𝙏𝙤𝙥𝙨 | 𝙍𝙖𝙣𝙠𝙞𝙣𝙜 🏆', '#top']
@@ -103,8 +106,8 @@ conn.sendHydrated(m.chat, menu, wm, pp, 'Hola', '🅙🅗🅐🅟🅟🅨-🅑�
 
 handler.help = ['infomenu'].map(v => v + 'able <option>')
 handler.tags = ['group', 'owner']
-handler.command = /^(xp|experiencia|esperiencia|esperiensia|experiensia|exp|level|gatacoins|coinsgata|coins)$/i
-handler.exp = 100
+handler.command = /^(xp|experiencia|exp)$/i
+handler.exp = 10
 export default handler
 
 const more = String.fromCharCode(8206)

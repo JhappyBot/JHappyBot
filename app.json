@@ -1,8 +1,8 @@
 {
-  "name": "JHappyBot", 
+  "name": "GataBotmd", 
   "description": "Super Bot WhatsApp",
-  "repository": "https://github.com/JhappyBot/JHappyBot",
-  "logo": "https://github.com/JhappyBot/JHappyBot/blob/master/media/menus/jmenub2.jpeg",
+  "repository": "https://github.com/BotSatMagic/Gatabotmd",
+  "logo": "https://i.imgur.com/8fK4h6F.jpg", 
   "keywords": ["java", "bot", "whatsapp-bot", "whatsapp-automation"],
   "buildpacks": [
   {
@@ -10,9 +10,6 @@
   },
   {
     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git"
-  },
-  {
-    "url": "https://github.com/DuckyTeam/heroku-buildpack-imagemagick.git"
   },
   {
     "url": "https://github.com/clhuang/heroku-buildpack-webp-binaries.git"

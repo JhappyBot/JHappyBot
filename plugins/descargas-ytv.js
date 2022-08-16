@@ -33,10 +33,10 @@ m.reply(`${fg}𝙀𝙎 𝙋𝙊𝙎𝙄𝘽𝙇𝙀 𝙌𝙐𝙀 𝙀𝙇 𝘼�
 console.log(e)  
 }
   
-let info = `💖 *🅙🅗🅐🅟🅟🅨-🅑🅞🅣.*\n\n💝 *hELLO.*
+let info = `💖 *Infórmate sobre las Novedades y recuerda tener la última versión.*\n\n💝 *Find out about what's new and remember to have the latest version.*
   `.trim()
   
-conn.sendHydrated(m.chat, info, wm, null, ig, 'hOLA', null, null, [
+conn.sendHydrated(m.chat, info, wm, null, ig, `${wm}`, null, null, [
 ['𝙈𝙚𝙣𝙪 𝘿𝙚𝙨𝙘𝙖𝙧𝙜𝙖𝙨 🌀', '#descargasmenu'],
 ['𝙈𝙚𝙣𝙪 𝘾𝙤𝙢𝙥𝙡𝙚𝙩𝙤 | 𝙁𝙪𝙡𝙡 𝙈𝙚𝙣𝙪 ✨', '.allmenu'],
 ['𝙑𝙤𝙡𝙫𝙚𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪́ | 𝘽𝙖𝙘𝙠 𝙩𝙤 𝙈𝙚𝙣𝙪 ☘️', '/menu'] 
@@ -46,6 +46,6 @@ conn.sendHydrated(m.chat, info, wm, null, ig, 'hOLA', null, null, [
 handler.help = ['mp4', 'v'].map(v => 'yt' + v + ` <url>`)
 handler.tags = ['downloader']
 handler.command = /^yt(v|mp4)?$/i
-handler.limit = 4
+handler.limit = 2
 handler.exp = 100
 export default handler

@@ -1,6 +1,6 @@
 {
     "name": "JHappyBot",
-    "version": "1.1.5",
+    "version": "2.0",
     "description": "Super Bot WhatsApp",
     "main": "index.js",
     "type": "module",
@@ -16,7 +16,7 @@
     },
     "homepage": "https://github.com/JhappyBot",
     "author": {
-        "name": "JhappyBot"
+        "name": "GataNina-Li"
     },
     "repository": {
         "type": "git",
@@ -49,6 +49,7 @@
         "link-preview-js": "^2.1.13",
         "lodash": "^4.17.21",
         "lowdb": "^3.0.0",
+        "moment-timezone": "^0.5.34",
         "mongoose": "^6.3.3",
         "node-fetch": "^3.2.0",
         "node-gtts": "^2.0.2",
@@ -70,4 +71,3 @@
         "yt-search": "^2.10.3"
     }
 }
-
