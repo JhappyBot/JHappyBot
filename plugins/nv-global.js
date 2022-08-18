@@ -7,7 +7,7 @@ global.db.data.users[m.sender].money += 50
 global.db.data.users[m.sender].exp += 50  
 
 if (/^hola$/i.test(m.text) && chat.audios && !chat.isBanned) {
-let vn = './media/Hola.mp3'
+let vn = './media/soybot.mp3'
 this.sendPresenceUpdate('recording', m.chat)   
 this.sendFile(m.chat, vn, 'error.mp3', null, m, true, {type: 'audioMessage', ptt: true})}  
 
