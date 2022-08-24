@@ -1,4 +1,5 @@
-let limit = 50
+let limit = 80
+import fs from 'fs'
 import fetch from 'node-fetch'
 import { youtubedl, youtubedlv2, youtubedlv3 } from '@bochilteam/scraper';
 let handler = async (m, { conn, args, isPrems, isOwner, usedPrefix, command }) => {
