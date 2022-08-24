@@ -1,3 +1,4 @@
+/*
 let limit = 80
 import fs from 'fs'
 import fetch from 'node-fetch'
@@ -9,7 +10,7 @@ contextInfo: { externalAdReply :{ mediaUrl: null, mediaType: 1, description: nul
 title: '𝚁𝙴𝙿𝚁𝙾𝙳𝚄𝙲𝚃𝙾𝚁 𝙳𝙴 𝙰𝚄𝙳𝙸𝙾 𝚅𝟸',
 body: `${wm}`,
 previewType: 0, thumbnail: fs.readFileSync("./media/menus/Menu1.jpg"),
-sourceUrl: `${wm}`}}})
+sourceUrl: `hola`}}})
 let chat = global.db.data.chats[m.chat]
 const isY = /y(es)/gi.test(args[1])
 const { thumbnail, audio: _audio, title } = await youtubedl(args[0]).catch(async _ => await youtubedlv2(args[0])).catch(async _ => await youtubedlv3(args[0]))
@@ -34,3 +35,4 @@ await conn.sendMessage(m.chat, { document: { url: link}, mimetype: 'audio/mpeg',
 }
 handler.command = /^ytmp3doc|ytadoc|ytmp3.2|yta.2$/i
 export default handler
+/*
