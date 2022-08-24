@@ -96,25 +96,25 @@ global.version = vs
 global.gt = '🅙🅗🅐🅟🅟🅨-🅑🅞🅣'
 global.gatabot = gt
 
-global.yt = ''
+global.yt = 'Jorge Luis - Propietario'
 global.youtube = yt
 
-global.ig = ''
+global.ig = 'Jorge Luis - Propietario'
 global.gatadiosig = ig
 
-global.md = ''
+global.md = 'Jorge Luis - Propietario'
 global.gatabot = md
 
-global.nn = ''
+global.nn = 'Jorge Luis - Propietario'
 global.nngrupo = nn //Grupo 1
 
-global.nnn = ''
+global.nnn = 'Jorge Luis - Propietario'
 global.nnngrupo = nnn //Grupo 2
 
-global.nnnt = ''
+global.nnnt = 'Jorge Luis - Propietario'
 global.nnngrupo = nnnt //Grupo 3
 
-global.paypal = ''
+global.paypal = 'Jorge Luis - Propietario'
 global.donar = paypal
 
 //global.gataimg = fs.readFileSync('./media/menus/Menu3.jpg')
@@ -159,14 +159,14 @@ global.wait = '*⌛ _Cargando..._ ▬▬▬▭*'
 //global.imagen2 = fs.readFileSync('./src/nuevobot.jpg') 
 //global.imagen3 = fs.readFileSync('./src/Pre Bot Publi.png')
 
-//global.keysZens = ['fiktod', 'c2459db922', 'BF39D349845E', '675e34de8a', '37CC845916', '0b917b905e6f', '6fb0eff124']
-//global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
+global.keysZens = ['fiktod', 'c2459db922', 'BF39D349845E', '675e34de8a', '37CC845916', '0b917b905e6f', '6fb0eff124']
+global.keysxxx = keysZens[Math.floor(keysZens.length * Math.random())]
 
 
 //━━━━━━━━━━━━━━lolkeys━━━━━━━━━
 global.lolkeys = ['2e0da1f78d1721134b21816d', '902c3bc9d8c08b0dcf8f5373', '808693688ecc695293359089', '85faf717d0545d14074659ad']
 global.lolkeysapi = lolkeys[Math.floor(lolkeys.length * Math.random())]
-
+global.lolkeysapi1 = ['85faf717d0545d14074659ad']
 //━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ ฅ^•ﻌ•^ฅ
 
 
