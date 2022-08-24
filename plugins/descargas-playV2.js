@@ -45,13 +45,13 @@ try {
 if (command == 'play.1') {
 conn.reply(m.chat, `${eg}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊 𝙀𝙇 𝘼𝙐𝘿𝙄𝙊 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍\n\n𝙒𝘼𝙄𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏 𝙁𝙊𝙍 𝙏𝙃𝙀 𝘼𝙐𝘿𝙄𝙊 𝙋𝙇𝙀𝘼𝙎𝙀`, m)  
 let res = await fetch("https://violetics.pw/api/media/youtube-play?apikey=beta&query="+text)  
-//let res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`)
+//let res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi1}&query=${text}`)
 let json = await res.json()
 conn.sendFile(m.chat, json.result.dlmp3, 'error.mp3', null, m, false, { mimetype: 'audio/mp4' })}
 if (command == 'play.2') {
 conn.reply(m.chat, `${eg}𝙀𝙎𝙋𝙀𝙍𝙀 𝙐𝙉 𝙈𝙊𝙈𝙀𝙉𝙏𝙊 𝙀𝙇 𝙑𝙄𝘿𝙀𝙊 𝙋𝙊𝙍 𝙁𝘼𝙑𝙊𝙍\n\n𝙒𝘼𝙄𝙏 𝘼 𝙈𝙊𝙈𝙀𝙉𝙏 𝙁𝙊𝙍 𝙏𝙃𝙀 𝙑𝙄𝘿𝙀𝙊 𝙋𝙇𝙀𝘼𝙎𝙀`, m)
 let res = await fetch("https://violetics.pw/api/media/youtube-play?apikey=beta&query="+text)
-//let res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi}&query=${text}`)
+//let res = await fetch(`https://api.lolhuman.xyz/api/ytplay2?apikey=${lolkeysapi1}&query=${text}`)
 let json = await res.json()
 conn.sendFile(m.chat, json.result.dlmp4, 'error.mp4', `${wm}`, m)}
 } catch (e) {
