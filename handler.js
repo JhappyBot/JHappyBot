@@ -3,10 +3,10 @@ import { format } from 'util'
 import { fileURLToPath } from 'url'
 import path, { join } from 'path'
 import { unwatchFile, watchFile } from 'fs'
-import chalk from 'chalk'
+import chalk from 'chalk'  
 
 /**
- * @type {import('@adiwajshing/baileys')}
+ * @type {import('@adiwajshing/baileys')}  
  */
 const { proto } = (await import('@adiwajshing/baileys')).default
 const isNumber = x => typeof x === 'number' && !isNaN(x)
@@ -43,18 +43,13 @@ export async function handler(chatUpdate) {
 		
             if (user) {
                 if (!isNumber(user.exp)) user.exp = 0
-		if (!isNumber(user.joincount)) user.joincount = 1    
-                if (!isNumber(user.limit)) user.limit = 20    	    
-                if (!isNumber(user.lastclaim)) user.lastclaim = 0
-		if (!isNumber(user.lastcofre)) user.lastcofre = 0    
+		if (!('premium' in user)) user.premium = false
+		if (!isNumber(user.joincount)) user.joincount = 2   
+                if (!isNumber(user.limit)) user.limit = 20    	       
                 if (!('registered' in user)) user.registered = false
                     
             if (!user.registered) {
-		    
-                /*if (!('name' in user)) user.name = m.name      
-                if (!isNumber(user.age)) user.age = -1
-                if (!isNumber(user.regTime)) user.regTime = -1*/
-		    
+		                    	 
 		    if (!('name' in user)) user.name = m.name
                     if (!isNumber(user.age)) user.age = -1
                     if (!isNumber(user.anggur)) user.anggur = 0
@@ -76,121 +71,9 @@ export async function handler(chatUpdate) {
                     if (!isNumber(user.stroberi)) user.stroberi = 0
                         
 	        }
-		    
-                /*if (!isNumber(user.afk)) user.afk = -1                    
-                if (!('afkReason' in user)) user.afkReason = ''
-		if (!('autolevelup' in user))  user.autolevelup = false                    
-		if (!isNumber(user.anakcentaur)) user.anakcentaur = 0
-		if (!isNumber(user.anakkyubi)) user.anakkyubi = 0
-		if (!isNumber(user.anakphonix)) user.anakphonix = 0
-		if (!isNumber(user.armor)) user.armor = 0                    
-                if (!isNumber(user.armordurability)) user.armordurability = 0
-		    
-		if (!('banned' in user)) user.banned = false
-		if (!isNumber(user.cat)) user.cat = 0
-		if (!isNumber(user.catexp)) user.catexp = 0
-		if (!isNumber(user.catlastfeed)) user.catlastfeed = 0
-		if (!isNumber(user.centaur)) user.centaur = 0
-                if (!isNumber(user.centaurexp)) user.centaurexp = 0
-                if (!isNumber(user.centaurlastclaim)) user.centaurlastclaim = 0
-                if (!isNumber(user.centaurlastfeed)) user.centaurlastfeed = 0
-		if (!isNumber(user.common)) user.common = 0
-		
-		if (!isNumber(user.dragon)) user.dragon = 0
-                if (!isNumber(user.dragonexp)) user.dragonexp = 0
-                if (!isNumber(user.dragonlastfeed)) user.dragonlastfeed = 0
-		if (!isNumber(user.diamond)) user.diamond = 0
-		if (!isNumber(user.dog)) user.dog = 0                    
-                if (!isNumber(user.dogexp)) user.dogexp = 0
-		if (!isNumber(user.doglastfeed)) user.doglastfeed = 0
-		    
-		if (!isNumber(user.emerald)) user.emerald = 0
-		if (!isNumber(user.fishingrod)) user.fishingrod = 0                    
-                if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0
-		if (!isNumber(user.foxlastfeed)) user.foxlastfeed = 0
-		if (!isNumber(user.fox)) user.fox = 0                    
-                if (!isNumber(user.foxhexp)) user.foxexp = 0
-		    
-		if (!isNumber(user.griffin)) user.griffin = 0
-                if (!isNumber(user.griffinexp)) user.griffinexp = 0
-                if (!isNumber(user.griffinlastclaim)) user.griffinlastclaim = 0
-                if (!isNumber(user.griffinlastfeed)) user.griffinlastfeed = 0    
-		if (!isNumber(user.gold)) user.gold = 0
-		
-		if (!isNumber(user.health)) user.health = 100
-		if (!isNumber(user.horse)) user.horse = 0                    
-                if (!isNumber(user.horseexp)) user.horseexp = 0                                                                                         
-                if (!isNumber(user.horselastfeed)) user.horselastfeed = 0
-				    
-		if (!isNumber(user.iron)) user.iron = 0
-		if (!isNumber(user.kyubi)) user.kyubi = 0
-                if (!isNumber(user.kyubiexp)) user.kyubiexp = 0
-                if (!isNumber(user.kyubilastclaim)) user.kyubilastclaim = 0
-                if (!isNumber(user.kyubilastfeed)) user.kyubilastfeed = 0  
-		    
-		if (!isNumber(user.lastclaim)) user.lastclaim = 0                    
-		if (!isNumber(user.lastcofre)) user.lastcofre = 0                    
-                if (!isNumber(user.lastadventure)) user.lastadventure = 0                    
-                if (!isNumber(user.lastfishing)) user.lastfishing = 0                   
-                if (!isNumber(user.lastdungeon)) user.lastdungeon = 0                    
-                if (!isNumber(user.lastduel)) user.lastduel = 0                    
-                if (!isNumber(user.lastmining)) user.lastmining = 0                    
-                if (!isNumber(user.lasthunt)) user.lasthunt = 0                    
-                if (!isNumber(user.lastweekly)) user.lastweekly = 0                    
-                if (!isNumber(user.lastmonthly)) user.lastmonthly = 0
-		if (!isNumber(user.lastwarpet)) user.lastwarpet = 0
-		if (!isNumber(user.lastsironclaim)) user.lastsironclaim = 0
-		    
-		if (!isNumber(user.level)) user.level = 0
-		if (!isNumber(user.legendary)) user.legendary = 0
-		if (!isNumber(user.makanankyubi)) user.makanankyubi = 0
-		if (!isNumber(user.makanangriffin)) user.makanangriffin = 0
-		if (!isNumber(user.makanancentaur)) user.makanancentaur = 0
-		if (!isNumber(user.makananpet)) user.makananpet = 0
-		if (!isNumber(user.makananphonix)) user.makananphonix = 0
-		    
-		if (!isNumber(user.limit)) user.limit = 10
-		if (!isNumber(user.lion)) user.lion = 0
-                if (!isNumber(user.lionexp)) user.lionexp = 0
-                if (!isNumber(user.lionlastfeed)) user.lionlastfeed = 0
-		    
-		if (!isNumber(user.mythic)) user.mythic = 0
-		if (!isNumber(user.money)) user.money = 0
-		if (!isNumber(user.petFood)) user.petFood = 0
-		if (!isNumber(user.pet)) user.pet = 0
-		if (!isNumber(user.phonix)) user.phonix = 0
-                if (!isNumber(user.phonixexp)) user.phonixexp = 0
-                if (!isNumber(user.phonixlastclaim)) user.phonixlastclaim = 0
-                if (!isNumber(user.phonixlastfeed)) user.phonixlastfeed = 0
-		if (!isNumber(user.pickaxe)) user.pickaxe = 0                    
-                if (!isNumber(user.pickaxedurability)) user.pickaxedurability = 0
-		if (!isNumber(user.potion)) user.potion = 0
-		    
-		if (!('role' in user)) user.role = 'Novato'
-		if (!isNumber(user.ramuankyubilast)) user.ramuankyubilast = 0
-		if (!isNumber(user.ramuangriffinlast)) user.ramuangriffinlast = 0
-		if (!isNumber(user.ramuancentaurlast)) user.ramuancentaurlast = 0
-		if (!isNumber(user.ramuanphonixlast)) user.ramuanphonixlast = 0
-		if (!isNumber(user.rhinoceros)) user.rhinoceros = 0
-                if (!isNumber(user.rhinocerosexp)) user.rhinocerosexp = 0
-                if (!isNumber(user.rhinoceroslastfeed)) user.rhinoceroslastfeed = 0
-		if (!isNumber(user.robo)) user.robo = 0
-                if (!isNumber(user.roboxp)) user.roboxp = 0		    
-		if (!isNumber(user.rock)) user.rock = 0
-		if (!isNumber(user.string)) user.string = 0
-		if (!isNumber(user.sword)) user.sword = 0                    
-                if (!isNumber(user.sworddurability)) user.sworddurability = 0
-		    
-		if (!isNumber(user.trash)) user.trash = 0
-		if (!isNumber(user.uncommon)) user.uncommon = 0		    
-                if (!isNumber(user.warn)) user.warn = 0                                                                                                                                                                                                                                                                 
-                if (!isNumber(user.wood)) user.wood = 0
-		if (!isNumber(user.wolf)) user.wolf = 0
-                if (!isNumber(user.wolfexp)) user.wolfexp = 0
-                if (!isNumber(user.wolflastfeed)) user.wolflastfeed = 0*/
-		    
+		                    		    
           if (!isNumber(user.afk)) user.afk = -1
-	      if (!('autolevelup' in user))  user.autolevelup = false
+	      if (!('autolevelup' in user))  user.autolevelup = true
 	      if (!('role' in user)) user.role = 'Novato'
               if (!isNumber(user.agility)) user.agility = 0
               if (!isNumber(user.anakanjing)) user.anakanjing = 0
@@ -207,7 +90,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.anggur)) user.anggur = 0
               if (!isNumber(user.anjing)) user.anjing = 0
               if (!isNumber(user.anjinglastclaim)) user.anjinglastclaim = 0
-              if (!isNumber(user.antispam)) user.antispam = 0
+              //if (!isNumber(user.antispam)) user.antispam = 0
               if (!isNumber(user.antispamlastclaim)) user.antispamlastclaim = 0
               if (!isNumber(user.apel)) user.apel = 0
               if (!isNumber(user.aqua)) user.aqua = 0
@@ -236,7 +119,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.bawal)) user.bawal = 0
               if (!isNumber(user.bawalbakar)) user.bawalbakar = 0
               if (!isNumber(user.bayam)) user.bayam = 0
-              if (!isNumber(user.berlian)) user.berlian = 10000
+              if (!isNumber(user.berlian)) user.berlian = 10
               if (!isNumber(user.bibitanggur)) user.bibitanggur = 0
               if (!isNumber(user.bibitapel)) user.bibitapel = 0
               if (!isNumber(user.bibitjeruk)) user.bibitjeruk = 0
@@ -264,7 +147,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.crystal)) user.crystal = 0
               if (!isNumber(user.cumi)) user.cumi = 0
               if (!isNumber(user.cupon)) user.cupon = 0
-              if (!isNumber(user.diamond)) user.diamond = 0
+              if (!isNumber(user.diamond)) user.diamond = 3
               if (!isNumber(user.dog)) user.dog = 0
               if (!isNumber(user.dogexp)) user.dogexp = 0
               if (!isNumber(user.doglastfeed)) user.doglastfeed = 0
@@ -279,6 +162,10 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.exp)) user.exp = 0
               if (!isNumber(user.expg)) user.expg = 0
               if (!isNumber(user.exphero)) user.exphero = 0
+	      if (!isNumber(user.eleksirb)) user.eleksirb = 0
+	      if (!isNumber(user.emasbatang)) user.emasbatang = 0
+	      if (!isNumber(user.emasbiasa)) user.emasbiasa = 0
+	      if (!isNumber(user.fideos)) user.fideos = 0    
               if (!isNumber(user.fishingrod)) user.fishingrod = 0
               if (!isNumber(user.fishingroddurability)) user.fishingroddurability = 0
               if (!isNumber(user.fortress)) user.fortress = 0
@@ -384,12 +271,14 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.lastberkebon)) user.lastberkebon = 0
               if (!isNumber(user.lastbunga)) user.lastbunga = 0
               if (!isNumber(user.lastbunuhi)) user.lastbunuhi = 0
+	      if (!isNumber(user.lastcoins)) user.lastcoins = 0    
               if (!isNumber(user.lastclaim)) user.lastclaim = 0
               if (!isNumber(user.lastcode)) user.lastcode = 0
 	      if (!isNumber(user.lastcofre)) user.lastcofre = 0
               if (!isNumber(user.lastcodereg)) user.lastcodereg = 0
               if (!isNumber(user.lastcrusade)) user.lastcrusade = 0
               if (!isNumber(user.lastdagang)) user.lastdagang = 0
+	      if (!isNumber(user.lastdiamantes)) user.lastdiamantes = 0    
               if (!isNumber(user.lastduel)) user.lastduel = 0
               if (!isNumber(user.lastdungeon)) user.lastdungeon = 0
               if (!isNumber(user.lasteasy)) user.lasteasy = 0
@@ -419,6 +308,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.lastngojek)) user.lastngojek = 0
               if (!isNumber(user.lastopen)) user.lastopen = 0
               if (!isNumber(user.lastpekerjaan)) user.lastpekerjaan = 0
+	      if (!isNumber(user.lastpago)) user.lastpago = 0 
               if (!isNumber(user.lastpotionclaim)) user.lastpotionclaim = 0
               if (!isNumber(user.lastrampok)) user.lastrampok = 0
               if (!isNumber(user.lastramuanclaim)) user.lastramuanclaim = 0
@@ -427,6 +317,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.lastsda)) user.lastsda = 0
               if (!isNumber(user.lastseen)) user.lastseen = 0
               if (!isNumber(user.lastSetStatus)) user.lastSetStatus = 0
+	      //if (!isNumber(user.lastspam)) user.lastspam = 0
               if (!isNumber(user.lastsironclaim)) user.lastsironclaim = 0
               if (!isNumber(user.lastsmancingclaim)) user.lastsmancingclaim = 0
               if (!isNumber(user.laststringclaim)) user.laststringclaim = 0
@@ -461,7 +352,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.makananserigala)) user.makananserigala = 0
               if (!isNumber(user.mana)) user.mana = 0
               if (!isNumber(user.mangga)) user.mangga = 0
-              if (!isNumber(user.money)) user.money = 0
+              if (!isNumber(user.money)) user.money = 500
               if (!isNumber(user.monyet)) user.monyet = 0
               if (!isNumber(user.mythic)) user.mythic = 0
               if (!isNumber(user.naga)) user.naga = 0
@@ -565,7 +456,7 @@ export async function handler(chatUpdate) {
               if (!isNumber(user.udang)) user.udang = 0
               if (!isNumber(user.udangbakar)) user.udangbakar = 0
               if (!isNumber(user.umpan)) user.umpan = 0
-              if (!isNumber(user.uncommon)) user.uncommon = 0
+              if (!isNumber(user.uncoommon)) user.uncoommon = 0
               if (!isNumber(user.unreglast)) user.unreglast = 0
               if (!isNumber(user.upgrader)) user.upgrader = 0
               if (!isNumber(user.vodka)) user.vodka = 0
@@ -587,119 +478,7 @@ export async function handler(chatUpdate) {
                                                    		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
             } else
                 global.db.data.users[m.sender] = {
-		    /*afk: -1,
-	            afkReason: '',
-		    age: -1,
-		    armor: 0,
-                    armordurability: 0,
-		    autolevelup: false,
-		    anakkyubi: 0,
-		    anakcentaur: 0,
-	            anakgriffin: 0,
-		    anakphonix: 0,
-			
-		    banned: false,
-		    catlastfeed: 0,
-		    cat: 0,
-                    catngexp: 0,
-		    centaur: 0,
-                    centaurexp: 0,
-                    centaurlastclaim: 0,
-                    centaurlastfeed: 0,
-		    common: 0,
-		
-		    dragon: 0,
-                    dragonexp: 0,
-                    dragonlastfeed: 0,
-	            diamond: 0,
-	            dog: 0,
-                    dogexp: 0,
-		    doglastfeed: 0,
-		    emerald: 0,
-		    exp: 0,
-			
-		    fox: 0,
-                    foxexp: 0,
-	            foxlastfeed: 0,
-		    fishingrod: 0,
-                    fishingroddurability: 0,
-		    griffin: 0,
-                    griffinexp: 0,
-                    griffinlastclaim: 0,
-                    griffinlastfeed: 0,
-		    gold: 0,
-			
-		    health: 100,
-		    horse: 0,
-                    horseexp: 0,                                                            
-                    horselastfeed: 0,
-		    iron: 0,
-		    kyubi: 0,
-                    kyubilastclaim: 0,
-			
-		    level: 0,
-		    legendary: 0,
-		    limit: 20,
-		    lion: 0,
-                    lionexp: 0,
-                    lionlastfeed: 0,
-			
-		    joincount: 1,
-		    lastclaim: 0,
-		    lastclaim: 0,
-		    lastcofre: 0,
-                    lastadventure: 0,
-                    lastfishing: 0,
-                    lastdungeon: 0,
-                    lastduel: 0,
-                    lastmining: 0,
-                    lasthunt: 0,
-                    lastweekly: 0,
-                    lastmonthly: 0,
-		    lastwarpet: 0,
-	            lastsironclaim: 0,
-		
-		    makanancentaur: 0,
-		    makanangriffin: 0,
-		    makanankyubi: 0,
-		    makananpet: 0,
-		    makananphonix: 0,
-		    mythic: 0,
-		    money: 0,
-		    name: m.name,
-			
-		    potion: 10,
-		    pet: 0,
-		    phonix: 0,
-                    phonixexp: 0,
-                    phonixlastclaim: 0,
-                    phonixlastfeed: 0,
-		    pickaxe: 0,
-                    pickaxedurability: 0,
 		    
-		    ramuancentaurlast: 0,
-		    ramuankyubilast: 0,
-		    ramuangriffinlast: 0,
-		    ramuanphonixlast: 0,
-		    regTime: -1,
-		    registered: false,
-		    rhinoceros: 0,
-                    rhinocerosexp: 0,
-                    rhinoceroslastfeed: 0,
-		    rock: 0,
-		    role: 'Novato',
-			
-		    string: 0,
-		    sword: 0,
-                    sworddurability: 0,
-			
-		    trash: 0,
-		    uncommon: 0,
-		    warn: 0,
-		    wood: 0,
-		    wolf: 0,
-                    wolfexp: 0,
-                    wolflastfeed: 0,*/
 		    afk: -1,
                     afkReason: '',
                     age: -1,
@@ -718,7 +497,7 @@ export async function handler(chatUpdate) {
                     anggur: 0,
                     anjing: 0,
                     anjinglastclaim: 0,
-                    antispam: 0,
+                    //antispam: 0,
                     antispamlastclaim: 0,
                     apel: 0,
                     aqua: 0,
@@ -730,7 +509,7 @@ export async function handler(chatUpdate) {
                     armormonster: 0,
                     as: 0,
                     atm: 0,
-                    autolevelup: false,
+                    autolevelup: true,
                     axe: 0,
                     axedurability: 0,
                     ayam: 0,
@@ -751,7 +530,7 @@ export async function handler(chatUpdate) {
                     bawal: 0,
                     bawalbakar: 0,
                     bayam: 0,
-                    berlian: 100000000,
+                    berlian: 10,
                     bibitanggur: 0,
                     bibitapel: 0,
                     bibitjeruk: 0,
@@ -779,7 +558,7 @@ export async function handler(chatUpdate) {
                     crystal: 0,
                     cumi: 0,
                     cupon: 0,
-                    diamond: 0,
+                    diamond: 3,
                     dog: 0,
                     dogexp: 0,
                     doglastfeed: 0,
@@ -794,6 +573,10 @@ export async function handler(chatUpdate) {
                     expg: 0,
                     exphero: 0,
                     expired: 0,
+		    eleksirb: 0,
+		    emasbatang: 0,
+		    emasbiasa: 0,
+		    fideos: 0,
                     fishingrod: 0,
                     fishingroddurability: 0,
                     fortress: 0,
@@ -834,7 +617,7 @@ export async function handler(chatUpdate) {
                     jagungbakar: 0,
                     jeruk: 0,
                     job: 'Pengangguran',
-		    joincount: 1,
+		    joincount: 2,
                     joinlimit: 1,
                     judilast: 0,
                     kaleng: 0,
@@ -896,12 +679,14 @@ export async function handler(chatUpdate) {
                     lastberkebon: 0,
                     lastbunga: 0,
                     lastbunuhi: 0,
+		    lastcoins: 0,
                     lastclaim: 0,
                     lastcode: 0,
 		    lastcofre: 0,
                     lastcrusade: 0,
                     lastdaang: 0,
                     lastdagang: 0,
+		    lastdiamantes: 0,
                     lastduel: 0,
                     lastdungeon: 0,
                     lasteasy: 0,
@@ -929,8 +714,10 @@ export async function handler(chatUpdate) {
                     lastngojek: 0,
                     lastopen: 0,
                     lastpekerjaan: 0,
+		    lastpago: 0,
                     lastpotionclaim: 0,
                     lastramuanclaim: 0,
+	            //lastspam: 0,
                     lastrob: 0,
                     lastroket: 0,
                     lastseen: 0,
@@ -971,7 +758,7 @@ export async function handler(chatUpdate) {
                     mana: 20,
                     mangga: 0,
                     misi: '',
-                    money: 0,
+                    money: 500,
                     monyet: 0,
                     mythic: 0,
                     naga: 0,
@@ -1079,7 +866,7 @@ export async function handler(chatUpdate) {
                     udang: 0,
                     udangbakar: 0,
                     umpan: 0,
-                    uncommon: 0,
+                    uncoommon: 0,
                     unreglast: 0,
                     upgrader: 0,
                     vodka: 0,
@@ -1112,9 +899,18 @@ export async function handler(chatUpdate) {
                 if (!('audios' in chat)) chat.audios = false                     
 		if (!('antiver' in chat)) chat.antiver = true                    
                 if (!('antiLink' in chat)) chat.antiLink = false                    
-                if (!('antiLink2' in chat)) chat.antiLink2 = false                    
+                if (!('antiLink2' in chat)) chat.antiLink2 = false
+		if (!('antiTiktok' in chat)) chat.antiTiktok = false
+		if (!('antiYoutube' in chat)) chat.antiYoutube = false
+		if (!('antiTelegram' in chat)) chat.antiTelegram = false
+		if (!('antiFacebook' in chat)) chat.antiFacebook = false
+		if (!('antiInstagram' in chat)) chat.antiInstagram = false
+		if (!('antiTwitter' in chat)) chat.antiInstagram = false
+		if (!('antifake' in chat)) chat.antifake = false
+		if (!('reaction' in chat)) chat.reaction = true    
                 if (!('viewonce' in chat)) chat.viewonce = false                    
-                if (!('antiToxic' in chat)) chat.antiToxic = false                    
+                if (!('antitoxic' in chat)) chat.antitoxic = true  
+		if (!('antiSpam' in chat)) chat.antiSpam = true  
                 if (!isNumber(chat.expired)) chat.expired = 0
                     
             } else
@@ -1134,8 +930,17 @@ export async function handler(chatUpdate) {
 		    antiver: true,
                     antiLink: false,
                     antiLink2: false,
+		    antiTiktok: false,
+		    antiYoutube: false,
+		    antiTelegram: false,
+		    antiFacebook: false,
+		    antiInstagram: false,
+		    antiTwitter: false,
+		    antifake: false,
+		    reaction: true,
                     viewonce: false,
-                    antiToxic: false,
+                    antitoxic: true,
+		    antiSpam: true,
                     expired: 0,
                 }
             let settings = global.db.data.settings[this.user.jid]
@@ -1144,12 +949,16 @@ export async function handler(chatUpdate) {
                 if (!('self' in settings)) settings.self = false
                 if (!('autoread' in settings)) settings.autoread = false
                 if (!('restrict' in settings)) settings.restrict = false
-		if (!('temporal' in settings)) settings.temporal = false
+		if (!('temporal' in settings)) settings.temporal = true
+		if (!('antiCall' in settings)) settings.antiCall = true
+		//if (!('antiSpam' in settings)) settings.antiSpam = true
             } else global.db.data.settings[this.user.jid] = {
                 self: false,
                 autoread: false,
                 restrict: false,
-		temporal: false
+		temporal: true,
+		antiCall: true
+		//antiSpam: true
             }
         } catch (e) {
             console.error(e)
@@ -1170,7 +979,8 @@ export async function handler(chatUpdate) {
         const isROwner = [conn.decodeJid(global.conn.user.id), ...global.owner.map(([number]) => number)].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
         const isOwner = isROwner || m.fromMe
         const isMods = isOwner || global.mods.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
-        const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+        //const isPrems = isROwner || global.prems.map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+	const isPrems = isROwner || global.db.data.users[m.sender].premiumTime > 0
 
        /* if (opts['queque'] && m.text && !(isMods || isPrems)) {
             let queque = this.msgqueque, time = 1000 * 5
@@ -1224,7 +1034,7 @@ export async function handler(chatUpdate) {
                     for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                         let data = (await conn.onWhatsApp(jid))[0] || {}
                         if (data.exists)
-                            m.reply(`*[ ⚠️ 𝚁𝙴𝙿𝙾𝚁𝚃𝙴 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙲𝙾𝙽 𝙵𝙰𝙻𝙻𝙾𝚂 ⚠️ ]*\n\n*—◉ 𝙿𝙻𝚄𝙶𝙸𝙽:* ${name}\n*—◉ 𝚄𝚂𝚄𝙰𝚁𝙸𝙾:* ${m.sender}\n*—◉ 𝙲𝙾𝙼𝙰𝙽𝙳𝙾:* ${m.text}\n\n*—◉ 𝙴𝚁𝚁𝙾𝚁:*\n\`\`\`${format(e)}\`\`\`\n\n*[❗] 𝚁𝙴𝙿𝙾𝚁𝚃𝙴𝙻𝙾 𝙰𝙻 𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 𝙿𝙰𝚁𝙰 𝙳𝙰𝚁𝙻𝙴 𝚄𝙽𝙰 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽, 𝙿𝚄𝙴𝙳𝙴 𝚄𝚂𝙰𝚁 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 #reporte*`.trim(), data.jid)
+                            m.reply(`*⚙️ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 𝗙𝗔𝗟𝗟𝗔𝗡𝗗𝗢 ⚙️*\n\n*⚠️ 𝗣𝗟𝗨𝗚𝗜𝗡*\n*_${name}_*\n\n*⚠️ 𝗨𝗦𝗨𝗔𝗥𝗜𝗢 : 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘*\n*_${m.sender}_*\n\n*⚠️ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 : 𝗖𝗢𝗠𝗠𝗔𝗡𝗗*\n*_${m.text}_*\n\n*ERROR*\n\`\`\`${format(e)}\`\`\`\n\n*❗ 𝗥𝗘𝗣𝗢𝗥𝗧𝗘 𝗘𝗦𝗧𝗘 𝗠𝗘𝗡𝗦𝗔𝗝𝗘 𝗨𝗦𝗔𝗡𝗗𝗢 𝗘𝗟 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 #reporte 𝗣𝗔𝗥𝗔 𝗦𝗢𝗟𝗨𝗖𝗜𝗢𝗡𝗔𝗥𝗟𝗢*`.trim(), data.jid)
                     }
                 }
             }
@@ -1288,6 +1098,9 @@ export async function handler(chatUpdate) {
                         typeof plugin.command === 'string' ? // String?
                             plugin.command === command :
                             false
+		
+		//if (text) {
+		//m.reply('*ERROR DE COMANDO*')}
 
                 if (!isAccept)
                     continue
@@ -1345,7 +1158,7 @@ export async function handler(chatUpdate) {
                 else
                     m.exp += xp
                 if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
-                    this.reply(m.chat, `${ag}𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎. 💎 𝙋𝙐𝙀𝘿𝙀 𝘾𝙊𝙈𝙋𝙍𝘼𝙍 𝘾𝙊𝙉 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 *${usedPrefix}buy cantidad*\n\n𝙄𝙏 𝙃𝘼𝙎 𝙉𝙊 𝘿𝙄𝘼𝙈𝙊𝙉𝘿𝙎. 💎 𝙔𝙊𝙐 𝘾𝘼𝙉 𝘽𝙐𝙔 𝙒𝙄𝙏𝙃 𝙏𝙃𝙀 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 *${usedPrefix}buy cantidad*`, m)
+                    this.reply(m.chat, `${ag}𝙉𝙊 𝙏𝙄𝙀𝙉𝙀 𝘿𝙄𝘼𝙈𝘼𝙉𝙏𝙀𝙎. 💎 𝙋𝙐𝙀𝘿𝙀 𝘾𝙊𝙈𝙋𝙍𝘼𝙍 𝘾𝙊𝙉 𝙀𝙇 𝘾𝙊𝙈𝘼𝙉𝘿𝙊 *${usedPrefix}buy*\n\n𝙄𝙏 𝙃𝘼𝙎 𝙉𝙊 𝘿𝙄𝘼𝙈𝙊𝙉𝘿𝙎. 💎 𝙔𝙊𝙐 𝘾𝘼𝙉 𝘽𝙐𝙔 𝙒𝙄𝙏𝙃 𝙏𝙃𝙀 𝘾𝙊𝙈𝙈𝘼𝙉𝘿 *${usedPrefix}buy*`, m)
                     continue // Limit habis
                 }
                 if (plugin.level > _user.level) {
@@ -1391,7 +1204,7 @@ export async function handler(chatUpdate) {
                             for (let [jid] of global.owner.filter(([number, _, isDeveloper]) => isDeveloper && number)) {
                                 let data = (await conn.onWhatsApp(jid))[0] || {}
                                 if (data.exists)
-                                    m.reply(`*[ ⚠️ 𝚁𝙴𝙿𝙾𝚁𝚃𝙴 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 𝙲𝙾𝙽 𝙵𝙰𝙻𝙻𝙾𝚂 ⚠️ ]*\n\n*—◉ 𝙿𝙻𝚄𝙶𝙸𝙽:* ${m.plugin}\n*—◉ 𝚄𝚂𝚄𝙰𝚁𝙸𝙾:* ${m.sender}\n*—◉ 𝙲𝙾𝙼𝙰𝙽𝙳𝙾:* ${usedPrefix}${command} ${args.join(' ')}\n\n\`\`\`${text}\`\`\`\n\n*[❗] 𝚁𝙴𝙿𝙾𝚁𝚃𝙴𝙻𝙾 𝙰𝙻 𝙲𝚁𝙴𝙰𝙳𝙾𝚁 𝙳𝙴𝙻 𝙱𝙾𝚃 𝙿𝙰𝚁𝙰 𝙳𝙰𝚁𝙻𝙴 𝚄𝙽𝙰 𝚂𝙾𝙻𝚄𝙲𝙸𝙾𝙽, 𝙿𝚄𝙴𝙳𝙴 𝚄𝚂𝙰𝚁 𝙴𝙻 𝙲𝙾𝙼𝙰𝙽𝙳𝙾 #reporte*`.trim(), data.jid)
+                                    m.reply(`*⚙️ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 𝗙𝗔𝗟𝗟𝗔𝗡𝗗𝗢 : 𝗖𝗢𝗠𝗠𝗔𝗡𝗗 𝗘𝗥𝗥𝗢𝗥 ⚙️*\n\n*⚠️ 𝗣𝗟𝗨𝗚𝗜𝗡*\n*_${name}_*\n\n*⚠️ 𝗨𝗦𝗨𝗔𝗥𝗜𝗢 : 𝗨𝗦𝗘𝗥𝗡𝗔𝗠𝗘*\n*_${m.sender}_*\n\n*⚠️ 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 : 𝗖𝗢𝗠𝗠𝗔𝗡𝗗*\n*_${m.text}_*\n\n*𝗘𝗥𝗥𝗢𝗥*\n\`\`\`${format(e)}\`\`\`\n\n*❗ 𝗥𝗘𝗣𝗢𝗥𝗧𝗘 𝗘𝗦𝗧𝗘 𝗠𝗘𝗡𝗦𝗔𝗝𝗘 𝗨𝗦𝗔𝗡𝗗𝗢 𝗘𝗟 𝗖𝗢𝗠𝗔𝗡𝗗𝗢 #reporte 𝗣𝗔𝗥𝗔 𝗦𝗢𝗟𝗨𝗖𝗜𝗢𝗡𝗔𝗥𝗟𝗢*`.trim(), data.jid)
                             }
                         m.reply(text)
                     }
@@ -1464,9 +1277,10 @@ export async function handler(chatUpdate) {
             //await this.chatRead(m.chat, m.isGroup ? m.sender : undefined, m.id || m.key.id).catch(() => { })
 		
 	await this.readMessages([m.key])
-        
-        if (!m.fromMem && m.text.match(/(Hello|JhappyBot)/gi)) {
-        let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "🥰", "😘", "😊", "🥳", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "👾", "🎃", "👻", "🤡", "🤝", "💪", "👑", "🥶", "😚", "🐱", "🐈", "🐆", "🐅", "💫", "⭐️", "🌟", "✨", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🍭", "🍩", "🍫", "🍧", "🚀", "🚅", "🚄", "🎈", "🪄", "🪅", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "💔", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "💟", "🌝", "😎", "👻", "🔥", "🖕", "🐦"])
+	    
+        if (!db.data.chats[m.chat].reaction && m.isGroup) throw 0
+        if (!m.fromMem && m.text.match(/(has|ato|ido|ura|des|able|sub|izo|ita|con|.-.|._.|:)|:(|:v|v:|o.o|;v|v;|v':|:'v)/gi)) {
+        let emot = pickRandom(["😺", "😸", "😹", "😻", "😼", "😽", "🙀", "😿", "😾", "🤩", "🥰", "😘", "😊", "🥳", "😏", "😳", "🥵", "🤯", "😱", "😨", "🤫", "🥴", "🤧", "🤑", "🤠", "🤖", "👾", "🎃", "👻", "🤡", "🤝", "💪", "👑", "😚", "🐱", "🐈", "🐆", "🐅", "💫", "⭐️", "🌟", "✨", "⚡️", "🌈", "☃️", "⛄️", "🌝", "🌛", "🌜", "🍓", "🍎", "🍭", "🍩", "🍫", "🍧", "🚀", "🚅", "🚄", "🎈", "🪄", "❤️", "🧡", "💛", "💚", "💙", "💜", "🖤", "🤍", "🤎", "❣️", "💕", "💞", "💓", "💗", "💖", "💘", "💝", "💟", "🌝", "😎", "🔥", "🖕", "🐦"])
         this.sendMessage(m.chat, { react: { text: emot, key: m.key }})}
         function pickRandom(list) { return list[Math.floor(Math.random() * list.length)]}
 		
@@ -1497,7 +1311,7 @@ export async function participantsUpdate({ id, participants, action }) {
                     try {
                         pp = await this.profilePictureUrl(user, 'image')
                     } catch (e) {
-                    } finally {
+                    } finally {  
                         text = (action === 'add' ? (chat.sWelcome || this.welcome || conn.welcome || 'Welcome, @user!').replace('@subject', await this.getName(id)).replace('@desc', groupMetadata.desc?.toString() || '*𝙂𝙧𝙪𝙥𝙤 𝙂𝙚𝙣𝙞𝙖𝙡 | 𝘾𝙤𝙤𝙡 𝙂𝙧𝙤𝙪𝙥 😼*') :
                             (chat.sBye || this.bye || conn.bye || 'Bye, @user!')).replace('@user', await this.getName(user)) //.replace('@user', '@' + user.split('@')[0])
                             let apii = await this.getFile(pp)
@@ -1505,6 +1319,12 @@ export async function participantsUpdate({ id, participants, action }) {
                             [(action == 'add' ? '𝙎𝙚 𝙪𝙣𝙞𝙤 🥳 | 𝙃𝙞!!' : '𝙎𝙚 𝙛𝙪𝙚 𝙪𝙣 𝙍𝙖𝙣𝙙𝙤𝙢 🧐 | 𝘽𝙮𝙚'), (action == 'add' ? '#welcomegc' : '#byegc')],    
                             ['💖 𝙄𝙧 𝙖𝙡 𝙈𝙚𝙣𝙪 | 𝙂𝙤 𝙈𝙚𝙣𝙪', '/menu']
                             ], '', { mentions: [user]})
+
+                                                   //este es el aumento para sticker al salir o entrar de grupo
+                           //let ftroli = { key: { fromMe: false,"participant":"0@s.whatsapp.net", "remoteJid": "6289523258649-1604595598@g.us" }, "message": { orderMessage: { itemCount: 6546464643, status: 200, thumbnail: imagen, surface: 200, message: wm, orderTitle: wm, sellerJid: '0@s.whatsapp.net' }}, contextInfo: { "forwardingScore": 999, "isForwarded": true}, sendEphemeral: true}  
+
+                            //this.sendButton(id, text, groupMetadata.subject, apii.data, [[(action == 'add' ? '💫 𝙱𝙸𝙴𝙽𝚅𝙴𝙽𝙸𝙳𝙾 💫' : '☠ 𝙰𝙳𝙸𝙾𝚂 ☠'), (action == 'add' ? '#welcomegc' : '#byegc')], ['♦ 𝙼𝙴𝙽𝚄 𝙳𝙴 𝙲𝙾𝙼𝙰𝙽𝙳𝙾𝚂 ♦', `#menu`]], ftroli, {mentions: this.parseMention(text)})
+                            
                            }
                 }
             }
@@ -1529,7 +1349,7 @@ export async function participantsUpdate({ id, participants, action }) {
  * Handle groups update
  * @param {import('@adiwajshing/baileys').BaileysEventMap<unknown>['groups.update']} groupsUpdate 
  */
-export async function groupsUpdate(groupsUpdate) {
+ export async function groupsUpdate(groupsUpdate) {
     if (opts['self'])
         return
     for (const groupUpdate of groupsUpdate) {
@@ -1546,33 +1366,41 @@ export async function groupsUpdate(groupsUpdate) {
     }
 }
 
+export async function callUpdate(callUpdate) {
+    let isAnticall = global.db.data.settings[this.user.jid].antiCall  
+    if (!isAnticall) return
+    for (let nk of callUpdate) { 
+    if (nk.isGroup == false) {
+    if (nk.status == "offer") {
+    let callmsg = await this.reply(nk.from, `𝙃𝙊𝙇𝘼 *@${nk.from.split('@')[0]}*, 𝙇𝘼𝙎 ${nk.isVideo ? '📲 𝙑𝙄𝘿𝙀𝙊𝙇𝙇𝘼𝙈𝘼𝘿𝘼𝙎' : '📞 𝙇𝙇𝘼𝙈𝘼𝘿𝘼𝙎'} 𝙉𝙊 𝙀𝙎𝙏𝘼𝙉 𝘼𝙐𝙏𝙊𝙍𝙄𝙕𝘼𝘿𝘼𝙎 𝙋𝙊𝙍 𝙇𝙊 𝙌𝙐𝙀 𝙏𝙀𝙉𝘿𝙍𝙀 𝙌𝙐𝙀 𝘽𝙇𝙊𝙌𝙐𝙀𝘼𝙍𝙏𝙀\n\n𝙎𝙄 𝙇𝙇𝘼𝙈𝘼𝙎𝙏𝙀 𝙋𝙊𝙍 𝘼𝘾𝘾𝙄𝘿𝙀𝙉𝙏𝙀 𝘾𝙊𝙈𝙐𝙉𝙄𝘾𝘼𝙏𝙀 𝘾𝙊𝙉 𝙇𝘼 𝙋𝙀𝙍𝙎𝙊𝙉𝘼 𝙋𝙍𝙊𝙋𝙄𝙀𝙏𝘼𝙍𝙄𝙊/𝘼 𝘿𝙀 𝙀𝙎𝙏𝙀 𝘽𝙊𝙏\n𝙎𝙄 𝙀𝙎 𝙐𝙉𝘼 𝘾𝙐𝙀𝙉𝙏𝘼 𝙊𝙁𝙄𝘾𝙄𝘼𝙇 𝘿𝙀 𝙂𝘼𝙏𝘼𝘽𝙊𝙏 𝘿𝙄𝙍𝙄𝙂𝙀𝙏𝙀 𝘼 𝙇𝘼 𝘼𝙎𝙄𝙎𝙏𝙀𝙉𝘾𝙄𝘼 𝙋𝙊𝙍 𝙄𝙉𝙎𝙏𝘼𝙂𝙍𝘼𝙈 𝙋𝘼𝙍𝘼 𝙏𝙍𝘼𝙏𝘼𝙍 𝙎𝙐 𝘾𝘼𝙎𝙊\n*${ig}*\n\n𝙔𝙊𝙐 𝙃𝘼𝙑𝙀 ${nk.isVideo ? '📲 𝙈𝘼𝘿𝙀 𝙑𝙄𝘿𝙀𝙊 𝘾𝘼𝙇𝙇' : '📞 𝘾𝘼𝙇𝙇𝙀𝘿'} 𝙉𝙊𝙏 𝘼𝙇𝙇𝙊𝙒𝙀𝘿, 𝙎𝙊 𝙄'𝙈 𝙂𝙊𝙄𝙉𝙂 𝙏𝙊 𝘽𝙇𝙊𝘾𝙆 𝙄𝙏\n\n𝙄𝙁 𝙔𝙊𝙐 𝘾𝘼𝙇𝙇𝙀𝘿 𝘽𝙀𝘾𝘼𝙐𝙎𝙀 𝙊𝙁 𝘼𝙉 𝘼𝘾𝘾𝙄𝘿𝙀𝙉𝙏, 𝘾𝙊𝙉𝙏𝘼𝘾𝙏 𝙏𝙃𝙀 𝙋𝙀𝙍𝙎𝙊𝙉 𝙒𝙃𝙊 𝙈𝘼𝙉𝘼𝙂𝙀𝙎 𝙏𝙃𝙀 𝘽𝙊𝙏\n𝙄𝙁 𝙄𝙏 𝙄𝙎 𝘼𝙉 𝙊𝙁𝙁𝙄𝘾𝙄𝘼𝙇 𝙂𝘼𝙏𝘼𝘽𝙊𝙏 𝘼𝘾𝘾𝙊𝙐𝙉𝙏, 𝘾𝙊𝙉𝙏𝘼𝘾𝙏 𝙐𝙎 𝙊𝙉 𝙄𝙉𝙎𝙏𝘼𝙂𝙍𝘼𝙈\n*${ig}*`, false, { mentions: [nk.from] })
+    //let data = global.owner.filter(([id, isCreator]) => id && isCreator)
+    //await this.sendContact(nk.from, data.map(([id, name]) => [id, name]), false, { quoted: callmsg })
+    await this.updateBlockStatus(nk.from, 'block')
+    }}}}
+
 export async function deleteUpdate(message) {
-    try {
-        const { fromMe, id, participant } = message
-        if (fromMe)
-            return
-        let msg = this.serializeM(this.loadMessage(id))
-        if (!msg)
-            return
-        let chat = global.db.data.chats[msg.chat] || {}
-        if (chat.delete)
-            return
-        await this.reply(msg.chat, `
-━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
-*■ Nombre:* @${participant.split`@`[0]}
-*■ Enviando el mensaje..*
-*■ Para desactivar esta función escriba el comando:*
-*—◉ #disable antidelete*
-*—◉ #enable delete*
-━━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━
-`.trim(), msg, {
-            mentions: [participant]
-        })
-        this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
-    } catch (e) {
-        console.error(e)
-    }
-}
+try {
+const { fromMe, id, participant } = message
+if (fromMe)
+return
+let msg = this.serializeM(this.loadMessage(id))
+if (!msg)
+return
+let chat = global.db.data.chats[msg.chat] || {}
+if (chat.delete)
+return 
+await this.reply(msg.chat, `
+*╭━━⬣  𝘼𝙉𝙏𝙄 𝙀𝙇𝙄𝙈𝙄𝙉𝘼𝙍  ⬣━━ 𓃠*
+*┃✤ Nombre:* @${participant.split`@`[0]}
+*┃✤ Enviando el mensaje eliminado...*
+*┃✤ Sending the deleted message...*
+*╰━━━⬣  𝘼𝙉𝙏𝙄 𝘿𝙀𝙇𝙀𝙏𝙀  ⬣━━━━╯*
+`.trim(), msg, { mentions: [participant] })
+	    
+this.copyNForward(msg.chat, msg).catch(e => console.log(e, msg))
+} catch (e) {
+console.error(e)
+}}
 
 global.dfail = (type, m, conn) => {
     let msg = {
@@ -1584,7 +1412,7 @@ global.dfail = (type, m, conn) => {
         private: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Este comando solo se puede usar en el chat privado del Bot!!*_\n_*¡¡This command can only be used in private chat*_',
         admin: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Este comando es solo para Administradores!!*_\n_*¡¡This command is for Administrators only!!*_',
         botAdmin: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Haz que Yo (Bot) sea Administrador para usar este comando!!*_\n_*¡¡Make the bot an Admin to use this command!!*_',
-        unreg: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡Qué esperas para estar Verificando(a) en JHappyBot! Usa el comando #verificar*_\n_*What are you waiting for to be Verifying with JHappyBot! Use the #verify command*_',
+        unreg: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡Qué esperas para estar Verificando(a) en JhappyBot! Usa el comando #verificar*_\n_*What are you waiting for to be Verifying with JhappyBot-MD! Use the #verify command*_',
         restrict: '╰⊱⚠️⊱ *𝘼𝘿𝙑𝙀𝙍𝙏𝙀𝙉𝘾𝙄𝘼 | 𝙒𝘼𝙍𝙉𝙄𝙉𝙂* ⊱⚠️⊱╮\n\n_*¡¡Esta función está Restringida | disable por Mí Creador(a)!!*_\n_*¡¡This feature is off | disable!!*_'
     }[type]
     if (msg) return m.reply(msg) 

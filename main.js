@@ -14,7 +14,7 @@ import lodash from 'lodash';
 import syntaxerror from 'syntax-error';
 import { tmpdir } from 'os';
 import { format } from 'util';
-// import pino from 'pino'; //import P from 'pino';
+import P from 'pino';
 import { makeWASocket, protoType, serialize } from './lib/simple.js';
 import { Low, JSONFile } from 'lowdb';
 import { mongoDB, mongoDBV2 } from './lib/mongoDB.js';
@@ -38,14 +38,7 @@ const __dirname = global.__dirname(import.meta.url)
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 global.prefix = new RegExp('^[' + (opts['prefix'] || 'xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-HhhHBb.*aA').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
 
-// global.opts['db'] = process.env['db']
-
-global.db = new Low( 
-  /https?:\/\//.test(opts['db'] || '') ?
-    new cloudDBAdapter(opts['db']) : /mongodb(\+srv)?:\/\//i.test(opts['db']) ?
-      (opts['mongodbv2'] ? new mongoDBV2(opts['db']) : new mongoDB(opts['db'])) :
-      new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`)
-)
+global.db = new Low(/https?:\/\//.test(opts['db'] || '') ? new cloudDBAdapter(opts['db']) : new JSONFile(`${opts._[0] ? opts._[0] + '_' : ''}database.json`))
 
 global.DATABASE = global.db // Backwards Compatibility
 global.loadDatabase = async function loadDatabase() {
@@ -72,14 +65,14 @@ global.loadDatabase = async function loadDatabase() {
 }
 loadDatabase()
 
-global.authFile = `${opts._[0] || 'session'}.data.json` //Nombre del archivo de la sesión 
+global.authFile = `JhappyBottSession` //Nombre del archivo de la sesión 
 const { state, saveState } = store.useSingleFileAuthState(global.authFile)
 
 const connectionOptions = {
   printQRInTerminal: true,
   auth: state,
-  //logger: pino({ level: 'trace' }), //import P from 'pino';
-  browser: ['JHappyBot','Edge','1.0.0'] //Nombre de la sesión 
+  logger: P({ level: 'silent'}),
+  browser: ['JhappyBot','Edge','1.0.0'] //Nombre de la sesión 
 }
 
 global.conn = makeWASocket(connectionOptions)
@@ -88,7 +81,7 @@ conn.isInit = false
 if (!opts['test']) {
 if (global.db) setInterval(async () => {
 if (global.db.data) await global.db.write()
-if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp'], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
+if (opts['autocleartmp'] && (global.support || {}).find) (tmp = [os.tmpdir(), 'tmp', "GataJadiBot"], tmp.forEach(filename => cp.spawn('find', [filename, '-amin', '3', '-type', 'f', '-delete'])))
 }, 30 * 1000)}
 
     
@@ -99,53 +92,55 @@ function clearTmp() {
   const tmp = [tmpdir(), join(__dirname, './tmp')]
   const filename = []
   tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
+  readdirSync("./GataJadiBot").forEach(file => {
+      console.log(file)
+      rmSync("./GataJadiBot/" + file, { recursive: true, force: true })})
   return filename.map(file => {
-    const stats = statSync(file)
-    if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minutes
-    return false
-  })
-}
+  const stats = statSync(file)
+  if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minutes
+  return false
+  })}
 
 async function connectionUpdate(update) {
-  const { connection, lastDisconnect, isNewLogin } = update
-  if (isNewLogin) conn.isInit = true
-  const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
-  if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState !== CONNECTING) {
-    console.log(await global.reloadHandler(true).catch(console.error))
-    global.timestamp.connect = new Date
-  }
-  if (global.db.data == null) loadDatabase()
-  if (connection == 'open') {
-    console.log(chalk.yellow('▣─────────────────────────────···\n│\n│❧ 𝙲𝙾𝙽𝙴𝙲𝚃𝙰𝙳𝙾 𝙲𝙾𝚁𝚁𝙴𝙲𝚃𝙰𝙼𝙴𝙽𝚃𝙴 𝙰𝙻 𝚆𝙷𝙰𝚃𝚂𝙰𝙿𝙿 ✅\n│\n▣─────────────────────────────···'))}
+const { connection, lastDisconnect, isNewLogin } = update
+if (isNewLogin) conn.isInit = true
+const code = lastDisconnect?.error?.output?.statusCode || lastDisconnect?.error?.output?.payload?.statusCode
+if (code && code !== DisconnectReason.loggedOut && conn?.ws.readyState !== CONNECTING) {
+console.log(await global.reloadHandler(true).catch(console.error))
+global.timestamp.connect = new Date
 }
-
+if (global.db.data == null) loadDatabase()
+if (connection == 'open') {
+console.log(chalk.yellow(`\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ 🟢 𝘾𝙊𝙉𝙀𝙓𝙄𝙊𝙉 ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠\n│\n│★ 𝘾𝙊𝙉𝙀𝙓𝙄𝙊𝙉 𝙀𝙓𝙄𝙏𝙊𝙎𝘼 𝘾𝙊𝙉 𝙀𝙇 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋  😺\n│\n│★ 𝙎𝙐𝘾𝘾𝙀𝙎𝙎𝙁𝙐𝙇 𝘾𝙊𝙉𝙉𝙀𝘾𝙏𝙄𝙊𝙉 𝙒𝙄𝙏𝙃 𝙒𝙃𝘼𝙏𝙎𝘼𝙋𝙋 😺\n│\n𓃠 ┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈✦ ✅ ✦┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ 𓃠`))}
+}
+    
 process.on('uncaughtException', console.error)
-// let strQuot = /(["'])(?:(?=(\\?))\2.)*?\1/
 
 let isInit = true;
 let handler = await import('./handler.js')
 global.reloadHandler = async function (restatConn) {
-  try {
-    const Handler = await import(`./handler.js?update=${Date.now()}`).catch(console.error)
-    if (Object.keys(Handler || {}).length) handler = Handler
-  } catch (e) {
-    console.error(e)
-  }
-  if (restatConn) {
-    const oldChats = global.conn.chats
-    try { global.conn.ws.close() } catch { }
-    conn.ev.removeAllListeners()
-    global.conn = makeWASocket(connectionOptions, { chats: oldChats })
-    isInit = true
-  }
-  if (!isInit) {
-    conn.ev.off('messages.upsert', conn.handler)
-    conn.ev.off('group-participants.update', conn.participantsUpdate)
-    conn.ev.off('groups.update', conn.groupsUpdate)
-    conn.ev.off('message.delete', conn.onDelete)
-    conn.ev.off('connection.update', conn.connectionUpdate)
-    conn.ev.off('creds.update', conn.credsUpdate)
-  }
+try {
+const Handler = await import(`./handler.js?update=${Date.now()}`).catch(console.error)
+if (Object.keys(Handler || {}).length) handler = Handler
+} catch (e) {
+console.error(e)
+}
+if (restatConn) {
+const oldChats = global.conn.chats
+try { global.conn.ws.close() } catch { }
+conn.ev.removeAllListeners()
+global.conn = makeWASocket(connectionOptions, { chats: oldChats })
+isInit = true
+}
+if (!isInit) {
+conn.ev.off('messages.upsert', conn.handler)
+conn.ev.off('group-participants.update', conn.participantsUpdate)
+conn.ev.off('groups.update', conn.groupsUpdate)
+conn.ev.off('message.delete', conn.onDelete)
+conn.ev.off('call', conn.onCall)
+conn.ev.off('connection.update', conn.connectionUpdate)
+conn.ev.off('creds.update', conn.credsUpdate)
+}
   
   //Información para Grupos
   conn.welcome = '*╭┈⊰* @subject *⊰┈ ✦*\n*┃✨ BIENVENIDO(A)!!*\n┃💖 @user\n┃📄 *LEA LA DESCRIPCIÓN DEL GRUPO*\n*╰┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈ ✦*\n\n@desc'
