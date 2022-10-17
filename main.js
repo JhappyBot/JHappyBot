@@ -92,9 +92,9 @@ function clearTmp() {
   const tmp = [tmpdir(), join(__dirname, './tmp')]
   const filename = []
   tmp.forEach(dirname => readdirSync(dirname).forEach(file => filename.push(join(dirname, file))))
-  readdirSync("./GataJadiBot").forEach(file => {
+  readdirSync("./JhappyJadiBot").forEach(file => {
       console.log(file)
-      rmSync("./GataJadiBot/" + file, { recursive: true, force: true })})
+      rmSync("./JhappyJadiBot/" + file, { recursive: true, force: true })})
   return filename.map(file => {
   const stats = statSync(file)
   if (stats.isFile() && (Date.now() - stats.mtimeMs >= 1000 * 60 * 3)) return unlinkSync(file) // 3 minutes
